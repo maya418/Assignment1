@@ -48,7 +48,6 @@ using namespace std;
         cout << "SPLFLIX is now on!" << endl;
         activeUser = new LengthRecommenderUser("default");//create default user
         cout << "Please enter action" << endl;
-        string action;
         cin >> action;
         while(action.compare("exit") != 0){
             string command = (action.substr(0, action.find(" ")));
@@ -83,6 +82,10 @@ using namespace std;
 
     User* Session::getActiveUser(){
         return activeUser;
+    }
+
+    string Session::getUserAction(){
+        return action;
     }
 
 

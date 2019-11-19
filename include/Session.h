@@ -16,10 +16,12 @@ public:
     void start();
     void setActiveUser(User user);
     User* getActiveUser();
+    std::string getUserAction();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+    std::string action;
 };
 #endif

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="config1">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="config1" />
+              <option name="relativePathToSchema" value="config1.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="config2">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="config2" />
+              <option name="relativePathToSchema" value="config2.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

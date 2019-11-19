@@ -33,12 +33,8 @@ string BaseAction::getErrorMsg() const{
 }
 
 void CreateUser::act(Session& sess){
-
     string action = sess.getUserAction();
-    vector<std::string> result;
-    std::istringstream iss(action);
-    for(std::string s; iss >> s; )
-        result.push_back(s);
+    result = splitTe
      string name = result[1];
      string preferredAlgo = result[2];
      if ((preferredAlgo.length() == 3 )&& (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)){
@@ -57,7 +53,7 @@ void CreateUser::act(Session& sess){
 }
 
 void ChangeActiveUser::act(Session& sess){
-
+    if (sess.contain(name))
 }
 /*
 void DeleteUser::act(Session& sess){
@@ -93,4 +89,13 @@ void Exit::act(Session& sess){
 //string BaseAction::toString()const{
 
 //}
+
+vector<string> splitText(string action){
+    vector<std::string> result;
+    std::istringstream iss(action);
+    for(std::string s; iss >> s; )
+        result.push_back(s);
+    return result;
+}
+
 

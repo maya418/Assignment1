@@ -37,28 +37,42 @@ void CreateUser::act(Session& sess){
     cout << "pending";
     string action = sess.getUserAction();
     vector<std::string>result = splitText(action);
-     string name = result[1];
-     string preferredAlgo = result[2];
-     if ((preferredAlgo.length() == 3 )&& (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)){
-        if (preferredAlgo == "len")
-            LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
-        else if(preferredAlgo == "rer")
-            RerunRecommenderUser* newUser = new RerunRecommenderUser(name);
-        else
-            GenreRecommenderUser* newUser = new GenreRecommenderUser(name);
-       complete();
-     }
-     else
-         //error();
-         cout << "you got a problem my friend";
+    if (result.size() == 3) {
+        string name = result[1];
+        string preferredAlgo = result[2];
+        if ((preferredAlgo.length() == 3) &&
+            (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
+            if (preferredAlgo == "len") {
+                LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
+                sess.getMap().insert({name,newUser});
+            }
+            else if (preferredAlgo == "rer") {
+                RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
+                sess.getMap().insert({name,newUser});
+            }
+            else {
+                GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
+                sess.getMap().insert({name,newUser});
+            }
+            complete();
+        } else
+            //error();
+            cout << "you got a problem my friend";
+    }
 }
 
 void ChangeActiveUser::act(Session& sess){
     string action = sess.getUserAction();
     vector<std::string>result = splitText(action);
     string name = result[1];
+    cout << sess.contain(name);
     if (sess.contain(name)){
-
+        sess.setActiveUser(sess.findUser(name));
+        complete();
+    }
+    else
+    {
+        //error();
     }
 }
 /*

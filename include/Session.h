@@ -14,10 +14,12 @@ public:
     Session(const std::string &configFilePath);
     //~Session();
     void start();
-    void setActiveUser(User user);
+    void setActiveUser(User* user);
     User* getActiveUser();
     std::string getUserAction();
     bool contain(std::string name);
+    User* findUser(std::string name);
+    std::unordered_map<std::string,User*>getMap();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;

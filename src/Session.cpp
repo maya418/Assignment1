@@ -60,7 +60,9 @@ using namespace std;
                 actionsLog.push_back(createUser);
             }
             else if (command.compare("changeuser") == 0){
-                cout << "change user" << endl;
+                ChangeActiveUser* changeUser = new ChangeActiveUser();
+                changeUser->act(*this);
+                actionsLog.push_back(changeUser);
             }
             else if (command.compare("deleteuser") == 0){
                 cout << "delete user" << endl;
@@ -77,8 +79,8 @@ using namespace std;
 
     }
 
-    void Session::setActiveUser(User user){
-        activeUser = &user;
+    void Session::setActiveUser(User* user){
+        activeUser = user;
     }
 
     User* Session::getActiveUser(){
@@ -93,6 +95,16 @@ using namespace std;
         if (userMap.find(name) == userMap.end())
             return false;
         return true;
+    }
+
+    User* Session::findUser(string name){
+        unordered_map<string,User*>::const_iterator got = userMap.find (name);
+        User* user = got->second;
+        return user;
+    }
+
+    unordered_map<string,User*> Session::getMap() {
+        return userMap;
     }
 
 

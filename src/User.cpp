@@ -30,23 +30,23 @@ LengthRecommenderUser::LengthRecommenderUser(const std::string &name) : User(nam
 Watchable* LengthRecommenderUser::getRecommendation(Session& s){
     Watchable* a;
     return a;
-}
+}*/
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string &name): User(name){
 
 }
-
+/*
 Watchable* RerunRecommenderUser::getRecommendation(Session& s){
     Watchable* a;
     return a;
-}
+}*/
 
 
 GenreRecommenderUser::GenreRecommenderUser(const std::string &name): User(name){
 
 }
 
-Watchable* GenreRecommenderUser::getRecommendation(Session& s){
+/*Watchable* GenreRecommenderUser::getRecommendation(Session& s){
     Watchable* a;
     return a;
 }*/

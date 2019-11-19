@@ -1,6 +1,7 @@
 //
 // Created by maya on 11/18/19.
 //
+#include <sstream>
 #include "../include/Action.h"
 #include "../include/User.h"
 #include "../include/Session.h"
@@ -33,16 +34,32 @@ string BaseAction::getErrorMsg() const{
 
 void CreateUser::act(Session& sess){
 
-    //sess.addUser();
-     //string name = sess.action.substr(sess.action.find(" ") , sess.action.find(" "));
-     //cout << sess.action;
-   //if (type.compare)
+    string action = sess.getUserAction();
+    vector<std::string> result;
+    std::istringstream iss(action);
+    for(std::string s; iss >> s; )
+        result.push_back(s);
+     string name = result[1];
+     string preferredAlgo = result[2];
+     if ((preferredAlgo.length() == 3 )&& (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)){
+         //pending
+        if (preferredAlgo == "len")
+            LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
+        else if(preferredAlgo == "rer")
+            RerunRecommenderUser* newUser = new RerunRecommenderUser(name);
+        else
+            GenreRecommenderUser* newUser = new GenreRecommenderUser(name);
+       complete();
+     }
+     else
+         //error();
+         cout << "you got a problem my friend";
 }
-/*
+
 void ChangeActiveUser::act(Session& sess){
 
 }
-
+/*
 void DeleteUser::act(Session& sess){
 
 }

@@ -5,7 +5,9 @@
 #include "../include/json.hpp"
 #include "../include/Watchable.h"
 #include "../include/User.h"
+#include <string>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ using namespace std;
         ifstream reader(file);
         reader >> j;
         reader.close();
-
+        /*
         Movie* movie;
         Episode* episode;
         string name;
@@ -41,6 +43,7 @@ using namespace std;
             //episode = new Episode(id , length ,id ,name, length, tags);
             //content.push_back(episode);
         }
+        */
     }
     //~Session();
     void Session::start()
@@ -48,11 +51,11 @@ using namespace std;
         cout << "SPLFLIX is now on!" << endl;
         activeUser = new LengthRecommenderUser("default");//create default user
         cout << "Please enter action" << endl;
-        cin >> action;
+        getline(cin , action);
         while(action.compare("exit") != 0){
-            string command = (action.substr(0, action.find(" ")));
+            string command = action.substr(0 , action.find(" "));
             if (command.compare("createuser") == 0){
-                CreateUser* createUser;
+                CreateUser* createUser = new CreateUser();
                 createUser->act(*this);
                 actionsLog.push_back(createUser);
             }
@@ -62,18 +65,16 @@ using namespace std;
             else if (command.compare("deleteuser") == 0){
                 cout << "delete user" << endl;
             }
-            else if (command.compare("createuser") == 0){
-                cout << "creating a user" << endl;
-            }
             else if (command.compare("dupuser") == 0){
                 cout << "duplicate user" << endl;
             }
             else if (command.compare("content") == 0){
                 cout << "print content" << endl;
             }
-            cin >> action;
+            getline(cin , action);
         }
         //Exit session
+
     }
 
     void Session::setActiveUser(User user){
@@ -86,6 +87,12 @@ using namespace std;
 
     string Session::getUserAction(){
         return action;
+    }
+
+    bool Session::contain(string name){
+        if (userMap.find(name) == userMap.end())
+            return false;
+        return true;
     }
 
 

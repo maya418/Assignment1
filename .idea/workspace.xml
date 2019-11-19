@@ -12,8 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17eef145-a86b-4b5b-a8e4-4b2a704f5312" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Assignment1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Assignment1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Action.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Action.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Session.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Session.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/User.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment1.dir/src/User.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Session.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/User.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Action.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574080492858</updated>
       <workItem from="1574080494017" duration="17830000" />
-      <workItem from="1574104242680" duration="33454000" />
+      <workItem from="1574104242680" duration="37411000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1574190409465</created>
@@ -117,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574190951540</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1574191353518</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574191353518</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,8 +165,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/Session.cpp</url>
-          <line>53</line>
-          <option name="timeStamp" value="4" />
+          <line>52</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

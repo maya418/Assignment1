@@ -17,6 +17,7 @@ public:
     void setActiveUser(User user);
     User* getActiveUser();
     std::string getUserAction();
+    bool contain(std::string name);
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;

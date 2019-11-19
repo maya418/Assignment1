@@ -381,6 +381,10 @@ type_traits
 /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
 ../include/User.h
 /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
+string
+-
 fstream
+-
+sstream
 -
 

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 class Session;
 
@@ -16,12 +17,11 @@ public:
 	BaseAction();
 	ActionStatus getStatus() const;
 	virtual void act(Session& sess)=0;
-	//virtual std::string toString() const=0;
-protected:
 	void complete();
 	void error(const std::string& errorMsg);
 	std::string getErrorMsg() const;
-private:
+    std::vector<std::string>splitText(std::string action);
+    private:
 	std::string errorMsg;
 	ActionStatus status;
 };
@@ -34,7 +34,7 @@ public:
 
 class ChangeActiveUser : public BaseAction {
 public:
-	//virtual void act(Session& sess);
+	virtual void act(Session& sess);
 	//virtual std::string toString() const;
 };
 

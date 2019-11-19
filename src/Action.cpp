@@ -22,6 +22,7 @@ ActionStatus BaseAction::getStatus()const{
 
 void BaseAction::complete(){
     status = COMPLETED;
+    cout << "complete";
 }
 
 void BaseAction::error(const std::string& errorMsg){
@@ -33,12 +34,12 @@ string BaseAction::getErrorMsg() const{
 }
 
 void CreateUser::act(Session& sess){
+    cout << "pending";
     string action = sess.getUserAction();
-    result = splitTe
+    vector<std::string>result = splitText(action);
      string name = result[1];
      string preferredAlgo = result[2];
      if ((preferredAlgo.length() == 3 )&& (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)){
-         //pending
         if (preferredAlgo == "len")
             LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
         else if(preferredAlgo == "rer")
@@ -53,7 +54,12 @@ void CreateUser::act(Session& sess){
 }
 
 void ChangeActiveUser::act(Session& sess){
-    if (sess.contain(name))
+    string action = sess.getUserAction();
+    vector<std::string>result = splitText(action);
+    string name = result[1];
+    if (sess.contain(name)){
+
+    }
 }
 /*
 void DeleteUser::act(Session& sess){
@@ -90,7 +96,7 @@ void Exit::act(Session& sess){
 
 //}
 
-vector<string> splitText(string action){
+vector<string> BaseAction::splitText(string action){
     vector<std::string> result;
     std::istringstream iss(action);
     for(std::string s; iss >> s; )

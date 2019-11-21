@@ -15,11 +15,14 @@ public:
     //~Session();
     void start();
     void setActiveUser(User* user);
+
     User* getActiveUser();
     std::string getUserAction();
+    std::vector<Watchable*> getContent();
+
     bool contain(std::string name);
     User* findUser(std::string name);
-    std::unordered_map<std::string,User*>getMap();
+    std::unordered_map<std::string,User*>* getMap();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;

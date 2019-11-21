@@ -18,21 +18,21 @@ using namespace std;
         ifstream reader(file);
         reader >> j;
         reader.close();
-        /*
+
         Movie* movie;
         Episode* episode;
         string name;
         int length;
         long id = 1;
-        vector<string> tags;
 
         for (const auto& item : j["movies"].items()) {
+            vector<string> tags;
             name = item.value()["name"];
             length = item.value()["length"];
-            id++;
             for (const auto& tag : item.value()["tags"].items())
                 tags.push_back(tag.value());
             movie = new Movie(id ,name, length, tags);
+            id++;
             content.push_back(movie);
         }
         id = 1;
@@ -43,7 +43,7 @@ using namespace std;
             //episode = new Episode(id , length ,id ,name, length, tags);
             //content.push_back(episode);
         }
-        */
+
     }
     //~Session();
     void Session::start()
@@ -65,13 +65,22 @@ using namespace std;
                 actionsLog.push_back(changeUser);
             }
             else if (command.compare("deleteuser") == 0){
-                cout << "delete user" << endl;
+                DeleteUser* deleteUser = new DeleteUser();
+                deleteUser->act(*this);
+                actionsLog.push_back(deleteUser);
             }
             else if (command.compare("dupuser") == 0){
-                cout << "duplicate user" << endl;
+                DuplicateUser* duplicateUser = new DuplicateUser();
+                duplicateUser->act(*this);
+                actionsLog.push_back(duplicateUser);
             }
             else if (command.compare("content") == 0){
                 cout << "print content" << endl;
+            }
+            else if (command.compare("watch") == 0){
+                Watch* watch = new Watch();
+                watch->act(*this);
+                actionsLog.push_back(watch);
             }
             getline(cin , action);
         }
@@ -91,6 +100,10 @@ using namespace std;
         return action;
     }
 
+    vector<Watchable*> Session::getContent(){
+        return content;
+    }
+
     bool Session::contain(string name){
         if (userMap.find(name) == userMap.end())
             return false;
@@ -103,8 +116,8 @@ using namespace std;
         return user;
     }
 
-    unordered_map<string,User*> Session::getMap() {
-        return userMap;
+    unordered_map<string,User*>* Session::getMap() {
+        return &userMap;
     }
 
 

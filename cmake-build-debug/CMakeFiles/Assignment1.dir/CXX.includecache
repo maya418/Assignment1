@@ -24,23 +24,15 @@ string
 Action.h
 /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Action.h
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
-vector
--
+/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
 string
 -
-unordered_set
--
-unordered_map
+vector
 -
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Action.cpp
-sstream
--
-../include/Action.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Action.h
-../include/User.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
+/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Watchable.cpp
+../include/Watchable.h
+/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
 ../include/Session.h
 /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Session.h
 

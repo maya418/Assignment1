@@ -40,7 +40,7 @@ public:
 
 class DeleteUser : public BaseAction {
 public:
-	//virtual void act(Session & sess);
+	virtual void act(Session & sess);
 	//virtual std::string toString() const;
 };
 

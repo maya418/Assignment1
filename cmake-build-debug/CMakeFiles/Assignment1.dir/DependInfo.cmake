@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Action.cpp" "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Action.cpp.o"
-  "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Main.cpp" "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Main.cpp.o"
-  "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Session.cpp" "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Session.cpp.o"
-  "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/User.cpp" "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/User.cpp.o"
-  "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Watchable.cpp" "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Watchable.cpp.o"
+  "/home/shokty/CLionProjects/Assingment1/src/Action.cpp" "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Action.cpp.o"
+  "/home/shokty/CLionProjects/Assingment1/src/Main.cpp" "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Main.cpp.o"
+  "/home/shokty/CLionProjects/Assingment1/src/Session.cpp" "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Session.cpp.o"
+  "/home/shokty/CLionProjects/Assingment1/src/User.cpp" "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/User.cpp.o"
+  "/home/shokty/CLionProjects/Assingment1/src/Watchable.cpp" "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir/src/Watchable.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

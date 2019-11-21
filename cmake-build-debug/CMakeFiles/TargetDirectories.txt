@@ -1,3 +1,3 @@
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/Assignment1.dir
+/home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/edit_cache.dir

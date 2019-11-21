@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug"/>
+				<Option working_dir="/home/shokty/CLionProjects/Assingment1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug"/>
+				<Option working_dir="/home/shokty/CLionProjects/Assingment1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assignment1">
-				<Option output="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Assignment1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug"/>
+				<Option output="/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Assignment1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/shokty/CLionProjects/Assingment1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment1"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment1"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assignment1/fast">
-				<Option output="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Assignment1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug"/>
+				<Option output="/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Assignment1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/shokty/CLionProjects/Assingment1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,54 +67,54 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment1/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assignment1/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug"/>
+				<Option working_dir="/home/shokty/CLionProjects/Assingment1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/shokty/CLionProjects/Assingment1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Action.h">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/include/Action.h">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Session.h">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/include/Session.h">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/include/User.h">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/include/Watchable.h">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/json.hpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/include/json.hpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Action.cpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/src/Action.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Main.cpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/src/Main.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Session.cpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/src/Session.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/User.cpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/src/User.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Watchable.cpp">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/src/Watchable.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
-		<Unit filename="/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/CMakeLists.txt">
+		<Unit filename="/home/shokty/CLionProjects/Assingment1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

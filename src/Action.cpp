@@ -75,11 +75,15 @@ void ChangeActiveUser::act(Session& sess){
         //error();
     }
 }
-/*
+
 void DeleteUser::act(Session& sess){
-
-}
-
+    string action = sess.getUserAction();
+    vector<std::string>result = splitText(action);
+    string name = result[1];
+    std::unordered_map<std::string,User*> mymap = sess.getMap();
+    mymap.erase(name);
+    }
+/*
 void DuplicateUser::act(Session& sess){
 
 }

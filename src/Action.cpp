@@ -95,8 +95,8 @@ void DuplicateUser::act(Session& sess){
     string new_name = result[2];
     if (sess.contain(original_name) & !sess.contain(new_name)){
         User* original_user = sess.findUser(original_name);
-        User* new_user = new User(original_user , new_name);
-        sess.getMap()->insert({new_name, new_user});
+        //User* new_user = new User(original_user , new_name);
+        //sess.getMap()->insert({new_name, new_user});
         complete();
     }
     else{
@@ -117,9 +117,19 @@ void Watch::act(Session& sess){
     vector<std::string>result = splitText(action);
     string id = result[1];
     Watchable* watch = sess.getContent()[(std::stoi(id) - 1)];
+    sess.getActiveUser()->set_history(watch);
+    cout << "watching now " << watch->toString() << "\n";
     Watchable* next = watch->getNextWatchable(sess);
-        //found->getNextWatchable(sess);
-    cout << "watching now " << watch->toString();
+    if (next != nullptr) {
+        cout << "do you want to watch " << next->toString() << " y/n" << "\n";
+        string answer;
+        getline(cin, answer);
+        if (answer == "y") {
+            complete();
+            sess.setUserAction("watch " +  std::to_string(next->getId()));
+            act(sess);
+        } else complete();
+    } else complete();
 }
 
 

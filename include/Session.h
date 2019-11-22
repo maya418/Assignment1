@@ -18,6 +18,7 @@ public:
 
     User* getActiveUser();
     std::string getUserAction();
+    void setUserAction(std::string action);
     std::vector<Watchable*> getContent();
 
     bool contain(std::string name);

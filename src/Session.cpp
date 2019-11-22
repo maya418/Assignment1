@@ -43,13 +43,13 @@ using namespace std;
             //episode = new Episode(id , length ,id ,name, length, tags);
             //content.push_back(episode);
         }
-
+        activeUser = new LengthRecommenderUser("default");//create default user
     }
     //~Session();
     void Session::start()
     {
         cout << "SPLFLIX is now on!" << endl;
-        activeUser = new LengthRecommenderUser("default");//create default user
+
         cout << "Please enter action" << endl;
         getline(cin , action);
         while(action.compare("exit") != 0){
@@ -98,6 +98,10 @@ using namespace std;
 
     string Session::getUserAction(){
         return action;
+    }
+
+    void Session::setUserAction(string action){
+        this->action = action;
     }
 
     vector<Watchable*> Session::getContent(){

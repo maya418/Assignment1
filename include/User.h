@@ -13,9 +13,11 @@ public:
     User(const std::string& name);
     const User& operator=(const User &other);
     User(const User* other , const std::string &name);
-    //virtual Watchable* getRecommendation(Session& s) = 0;
+    virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
+    void set_history(Watchable* watch);
+    bool hasWatched(Watchable* watch);
 protected:
     std::vector<Watchable*> history;
 private:
@@ -34,14 +36,14 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
-    //virtual Watchable* getRecommendation(Session& s);
+    virtual Watchable* getRecommendation(Session& s);
 private:
 };
 
 class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(const std::string& name);
-    //virtual Watchable* getRecommendation(Session& s);
+    virtual Watchable* getRecommendation(Session& s);
 private:
 };
 

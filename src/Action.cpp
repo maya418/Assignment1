@@ -103,15 +103,27 @@ void DuplicateUser::act(Session& sess){
         //error
     }
 }
-/*
-void PrintContentList::act(Session& sess){
 
+void PrintContentList::act(Session& sess){
+    for (int i = 0; i < sess.getContent().size(); i++){
+        Watchable* currentContent = sess.getContent()[i];
+        cout << currentContent->getId() << ". " << currentContent->toString() << " " << currentContent->getLength() << " minutes [";
+        for (int j = 0; j < currentContent->getTags().size(); j++) {
+            cout <<  currentContent->getTags()[j] ;
+            if (j < currentContent->getTags().size() - 1)
+                cout << ", ";
+        }
+        cout << "]" << "\n";
+    }
 }
 
 void PrintWatchHistory::act(Session& sess){
-
+    cout << "watch history for " << sess.getActiveUser()->getName() << "\n";
+    for (int i = 0; i < sess.getActiveUser()->get_history().size(); i++){
+        cout << (i+1) << ". " << sess.getActiveUser()->get_history()[i]->toString() << "\n";
+    }
 }
-*/
+
 void Watch::act(Session& sess){
     string action = sess.getUserAction();
     vector<std::string>result = splitText(action);
@@ -126,7 +138,7 @@ void Watch::act(Session& sess){
         getline(cin, answer);
         if (answer == "y") {
             complete();
-            sess.setUserAction("watch " +  std::to_string(next->getId()));
+            sess.setUserAction("watch " + std::to_string(next->getId()));
             act(sess);
         } else complete();
     } else complete();

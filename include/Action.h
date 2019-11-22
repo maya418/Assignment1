@@ -53,13 +53,13 @@ public:
 
 class PrintContentList : public BaseAction {
 public:
-	//virtual void act (Session& sess);
+	virtual void act (Session& sess);
 	//virtual std::string toString() const;
 };
 
 class PrintWatchHistory : public BaseAction {
 public:
-	//virtual void act (Session& sess);
+	virtual void act (Session& sess);
 	//virtual std::string toString() const;
 };
 

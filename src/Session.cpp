@@ -35,21 +35,32 @@ using namespace std;
             id++;
             content.push_back(movie);
         }
-        id = 1;
+        //run over the tv_series and add them to the content
         for (const auto& item : j["tv_series"].items()){
+            vector<string> tags;
             name = item.value()["name"];
             length = item.value()["episode_length"];
-            id++;
-            //episode = new Episode(id , length ,id ,name, length, tags);
-            //content.push_back(episode);
+            int NumOfSeason = 1;
+            for (const auto& tag : item.value()["tags"].items())
+                tags.push_back(tag.value());
+            for (const auto& season : item.value()["seasons"].items()) {
+                for (int currentEpisode = 1; currentEpisode<= season.value(); currentEpisode++){
+                    episode = new Episode(id ,name, length , NumOfSeason , currentEpisode , tags);
+                    content.push_back(episode);
+                    id++;
+                    episode->setNextEpisodeId(id);
+                }
+                NumOfSeason++;
+            }
+            episode->setNextEpisodeId(0);//last episode of a tv-series
         }
-
+        activeUser = new LengthRecommenderUser("default");//create default user
     }
     //~Session();
     void Session::start()
     {
         cout << "SPLFLIX is now on!" << endl;
-        activeUser = new LengthRecommenderUser("default");//create default user
+
         cout << "Please enter action" << endl;
         getline(cin , action);
         while(action.compare("exit") != 0){
@@ -75,12 +86,19 @@ using namespace std;
                 actionsLog.push_back(duplicateUser);
             }
             else if (command.compare("content") == 0){
-                cout << "print content" << endl;
+                PrintContentList* printContentList = new PrintContentList();
+                printContentList->act(*this);
+                actionsLog.push_back(printContentList);
             }
             else if (command.compare("watch") == 0){
                 Watch* watch = new Watch();
                 watch->act(*this);
                 actionsLog.push_back(watch);
+            }
+            else if (command.compare("watchhist") == 0){
+                PrintWatchHistory* printWatchHistory = new PrintWatchHistory();
+                printWatchHistory->act(*this);
+                actionsLog.push_back(printWatchHistory);
             }
             getline(cin , action);
         }
@@ -98,6 +116,10 @@ using namespace std;
 
     string Session::getUserAction(){
         return action;
+    }
+
+    void Session::setUserAction(string action){
+        this->action = action;
     }
 
     vector<Watchable*> Session::getContent(){

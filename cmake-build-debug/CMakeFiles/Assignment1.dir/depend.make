@@ -4,6 +4,7 @@
 CMakeFiles/Assignment1.dir/src/Action.cpp.o: ../include/Action.h
 CMakeFiles/Assignment1.dir/src/Action.cpp.o: ../include/Session.h
 CMakeFiles/Assignment1.dir/src/Action.cpp.o: ../include/User.h
+CMakeFiles/Assignment1.dir/src/Action.cpp.o: ../include/Watchable.h
 CMakeFiles/Assignment1.dir/src/Action.cpp.o: ../src/Action.cpp
 
 CMakeFiles/Assignment1.dir/src/Main.cpp.o: ../include/Action.h
@@ -17,10 +18,15 @@ CMakeFiles/Assignment1.dir/src/Session.cpp.o: ../include/Watchable.h
 CMakeFiles/Assignment1.dir/src/Session.cpp.o: ../include/json.hpp
 CMakeFiles/Assignment1.dir/src/Session.cpp.o: ../src/Session.cpp
 
+CMakeFiles/Assignment1.dir/src/User.cpp.o: ../include/Action.h
+CMakeFiles/Assignment1.dir/src/User.cpp.o: ../include/Session.h
 CMakeFiles/Assignment1.dir/src/User.cpp.o: ../include/User.h
 CMakeFiles/Assignment1.dir/src/User.cpp.o: ../include/Watchable.h
 CMakeFiles/Assignment1.dir/src/User.cpp.o: ../src/User.cpp
 
+CMakeFiles/Assignment1.dir/src/Watchable.cpp.o: ../include/Action.h
+CMakeFiles/Assignment1.dir/src/Watchable.cpp.o: ../include/Session.h
+CMakeFiles/Assignment1.dir/src/Watchable.cpp.o: ../include/User.h
 CMakeFiles/Assignment1.dir/src/Watchable.cpp.o: ../include/Watchable.h
 CMakeFiles/Assignment1.dir/src/Watchable.cpp.o: ../src/Watchable.cpp
 

@@ -24,6 +24,7 @@ public:
     bool contain(std::string name);
     User* findUser(std::string name);
     std::unordered_map<std::string,User*>* getMap();
+    std::vector<BaseAction*>* getActionsLog();
 private:
     std::vector<Watchable*> content;
     std::vector<BaseAction*> actionsLog;

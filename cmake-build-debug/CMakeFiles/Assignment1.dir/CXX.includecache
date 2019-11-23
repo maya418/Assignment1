@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Action.h
+/home/shokty/CLionProjects/Assingment1/include/Action.h
 string
 -
 iostream
@@ -14,7 +14,7 @@ iostream
 vector
 -
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Session.h
+/home/shokty/CLionProjects/Assingment1/include/Session.h
 vector
 -
 unordered_map
@@ -22,9 +22,9 @@ unordered_map
 string
 -
 Action.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Action.h
+/home/shokty/CLionProjects/Assingment1/include/Action.h
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
+/home/shokty/CLionProjects/Assingment1/include/User.h
 vector
 -
 string
@@ -34,25 +34,25 @@ unordered_set
 unordered_map
 -
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
+/home/shokty/CLionProjects/Assingment1/include/Watchable.h
 string
 -
 vector
 -
 
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/User.cpp
+/home/shokty/CLionProjects/Assingment1/src/Action.cpp
+sstream
+-
+vector
+-
+../include/Action.h
+/home/shokty/CLionProjects/Assingment1/include/Action.h
 ../include/User.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
-../include/Watchable.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
+/home/shokty/CLionProjects/Assingment1/include/User.h
 ../include/Session.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Session.h
-
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/src/Watchable.cpp
+/home/shokty/CLionProjects/Assingment1/include/Session.h
 ../include/Watchable.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Watchable.h
-../include/Session.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/Session.h
-../include/User.h
-/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/include/User.h
+/home/shokty/CLionProjects/Assingment1/include/Watchable.h
+string
+-
 

@@ -18,7 +18,6 @@ using namespace std;
         ifstream reader(file);
         reader >> j;
         reader.close();
-
         Movie* movie;
         Episode* episode;
         string name;
@@ -100,6 +99,11 @@ using namespace std;
                 printWatchHistory->act(*this);
                 actionsLog.push_back(printWatchHistory);
             }
+            else if (command.compare("log") == 0){
+                PrintActionsLog* s = new PrintActionsLog();
+                s->act(*this);
+                actionsLog.push_back(s);
+            }
             getline(cin , action);
         }
         //Exit session
@@ -142,7 +146,9 @@ using namespace std;
         return &userMap;
     }
 
-
+    vector<BaseAction*>* Session::getActionsLog() {
+    return &actionsLog;
+}
 
 
 

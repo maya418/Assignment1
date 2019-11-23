@@ -5,6 +5,8 @@
 #include "../include/Action.h"
 #include "../include/User.h"
 #include "../include/Session.h"
+#include "../include/Watchable.h"
+#include <string>
 
 using namespace std;
 
@@ -37,27 +39,23 @@ void CreateUser::act(Session& sess){
     cout << "pending";
     string action = sess.getUserAction();
     vector<std::string>result = splitText(action);
-    if (result.size() == 3) {
-        string name = result[1];
-        string preferredAlgo = result[2];
-        if ((preferredAlgo.length() == 3) &&
-            (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
-            if (preferredAlgo == "len") {
-                LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
-                sess.getMap().insert({name,newUser});
-            }
-            else if (preferredAlgo == "rer") {
-                RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
-                sess.getMap().insert({name,newUser});
-            }
-            else {
-                GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
-                sess.getMap().insert({name,newUser});
-            }
-            complete();
-        } else
-            //error();
-            cout << "you got a problem my friend";
+    const string name = result[1];
+    string preferredAlgo = result[2];
+    if ((preferredAlgo.length() == 3) &&
+    (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
+        if (preferredAlgo == "len") {
+            LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
+            sess.getMap()->insert({name, newUser});
+        } else if (preferredAlgo == "rer") {
+            RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
+            sess.getMap()->insert({name, newUser});
+        } else {
+            GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
+            sess.getMap()->insert({name, newUser});
+        }
+        complete();
+        //error();
+        // cout << "you got a problem my friend";
     }
 }
 
@@ -80,14 +78,32 @@ void DeleteUser::act(Session& sess){
     string action = sess.getUserAction();
     vector<std::string>result = splitText(action);
     string name = result[1];
-    std::unordered_map<std::string,User*> mymap = sess.getMap();
-    mymap.erase(name);
+    if (sess.contain(name)){
+        sess.getMap()->erase(name);
+        complete();
     }
-/*
-void DuplicateUser::act(Session& sess){
-
+    else
+    {
+        //error();
+    }
 }
 
+void DuplicateUser::act(Session& sess){
+    string action = sess.getUserAction();
+    vector<std::string>result = splitText(action);
+    string original_name = result[1];
+    string new_name = result[2];
+    if (sess.contain(original_name) & !sess.contain(new_name)){
+        User* original_user = sess.findUser(original_name);
+        User* new_user = new User(original_user , new_name);
+        sess.getMap()->insert({new_name, new_user});
+        complete();
+    }
+    else{
+        //error
+    }
+}
+/*
 void PrintContentList::act(Session& sess){
 
 }
@@ -97,10 +113,15 @@ void PrintWatchHistory::act(Session& sess){
 }
 */
 void Watch::act(Session& sess){
-    //found whatever user want lets say its:
-    Watchable* found;
-    sess.getActiveUser()->get_history().push_back(found);
+    string action = sess.getUserAction();
+    vector<std::string>result = splitText(action);
+    string id = result[1];
+    Watchable* watch = sess.getContent()[(std::stoi(id) - 1)];
+    Watchable* next = watch->getNextWatchable(sess);
+        //found->getNextWatchable(sess);
+    cout << "watching now " << watch->toString();
 }
+
 
 //void PrintActionsLog::act(Session& sess){
 

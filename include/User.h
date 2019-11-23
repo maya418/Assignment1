@@ -11,6 +11,8 @@ class Session;
 class User{
 public:
     User(const std::string& name);
+    const User& operator=(const User &other);
+    User(const User* other , const std::string &name);
     //virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;
     std::vector<Watchable*> get_history() const;
@@ -25,7 +27,7 @@ private:
 class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(const std::string& name);
-    //virtual Watchable* getRecommendation(Session& s);
+    virtual Watchable* getRecommendation(Session& s);
 private:
 };
 

@@ -1,4 +1,4 @@
-# Install script for directory: /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1
+# Install script for directory: /home/shokty/CLionProjects/Assingment1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/shokty/CLionProjects/Assingment1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

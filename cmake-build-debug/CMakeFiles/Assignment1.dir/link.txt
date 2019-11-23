@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Assignment1.dir/src/Main.cpp.o CMakeFiles/Assignment1.dir/src/Session.cpp.o CMakeFiles/Assignment1.dir/src/Action.cpp.o CMakeFiles/Assignment1.dir/src/Watchable.cpp.o CMakeFiles/Assignment1.dir/src/User.cpp.o  -o Assignment1 

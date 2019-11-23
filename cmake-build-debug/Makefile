@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /media/maya/F6C47AEDC47AB00B/Programs/clion-2019.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = "/home/shokty/שולחן העבודה/clion-2019.2.5/bin/cmake/linux/bin/cmake"
 
 # The command to remove a file.
-RM = /media/maya/F6C47AEDC47AB00B/Programs/clion-2019.2.5/bin/cmake/linux/bin/cmake -E remove -f
+RM = "/home/shokty/שולחן העבודה/clion-2019.2.5/bin/cmake/linux/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1
+CMAKE_SOURCE_DIR = /home/shokty/CLionProjects/Assingment1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/shokty/CLionProjects/Assingment1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/media/maya/F6C47AEDC47AB00B/Programs/clion-2019.2.5/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/home/shokty/שולחן העבודה/clion-2019.2.5/bin/cmake/linux/bin/cmake" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/media/maya/F6C47AEDC47AB00B/Programs/clion-2019.2.5/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	"/home/shokty/שולחן העבודה/clion-2019.2.5/bin/cmake/linux/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles /home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shokty/CLionProjects/Assingment1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Assignment1
+# Target rules for targets named Assingment1
 
 # Build rule for target.
-Assignment1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Assignment1
-.PHONY : Assignment1
+Assingment1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Assingment1
+.PHONY : Assingment1
 
 # fast build rule for target.
-Assignment1/fast:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/build
-.PHONY : Assignment1/fast
+Assingment1/fast:
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/build
+.PHONY : Assingment1/fast
 
 src/Action.o: src/Action.cpp.o
 
@@ -129,7 +129,7 @@ src/Action.o: src/Action.cpp.o
 
 # target to build an object file
 src/Action.cpp.o:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Action.cpp.o
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Action.cpp.o
 .PHONY : src/Action.cpp.o
 
 src/Action.i: src/Action.cpp.i
@@ -138,7 +138,7 @@ src/Action.i: src/Action.cpp.i
 
 # target to preprocess a source file
 src/Action.cpp.i:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Action.cpp.i
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Action.cpp.i
 .PHONY : src/Action.cpp.i
 
 src/Action.s: src/Action.cpp.s
@@ -147,7 +147,7 @@ src/Action.s: src/Action.cpp.s
 
 # target to generate assembly for a file
 src/Action.cpp.s:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Action.cpp.s
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Action.cpp.s
 .PHONY : src/Action.cpp.s
 
 src/Main.o: src/Main.cpp.o
@@ -156,7 +156,7 @@ src/Main.o: src/Main.cpp.o
 
 # target to build an object file
 src/Main.cpp.o:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Main.cpp.o
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Main.cpp.o
 .PHONY : src/Main.cpp.o
 
 src/Main.i: src/Main.cpp.i
@@ -165,7 +165,7 @@ src/Main.i: src/Main.cpp.i
 
 # target to preprocess a source file
 src/Main.cpp.i:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Main.cpp.i
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Main.cpp.i
 .PHONY : src/Main.cpp.i
 
 src/Main.s: src/Main.cpp.s
@@ -174,7 +174,7 @@ src/Main.s: src/Main.cpp.s
 
 # target to generate assembly for a file
 src/Main.cpp.s:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Main.cpp.s
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
 src/Session.o: src/Session.cpp.o
@@ -183,7 +183,7 @@ src/Session.o: src/Session.cpp.o
 
 # target to build an object file
 src/Session.cpp.o:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Session.cpp.o
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Session.cpp.o
 .PHONY : src/Session.cpp.o
 
 src/Session.i: src/Session.cpp.i
@@ -192,7 +192,7 @@ src/Session.i: src/Session.cpp.i
 
 # target to preprocess a source file
 src/Session.cpp.i:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Session.cpp.i
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Session.cpp.i
 .PHONY : src/Session.cpp.i
 
 src/Session.s: src/Session.cpp.s
@@ -201,7 +201,7 @@ src/Session.s: src/Session.cpp.s
 
 # target to generate assembly for a file
 src/Session.cpp.s:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Session.cpp.s
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Session.cpp.s
 .PHONY : src/Session.cpp.s
 
 src/User.o: src/User.cpp.o
@@ -210,7 +210,7 @@ src/User.o: src/User.cpp.o
 
 # target to build an object file
 src/User.cpp.o:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/User.cpp.o
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/User.cpp.o
 .PHONY : src/User.cpp.o
 
 src/User.i: src/User.cpp.i
@@ -219,7 +219,7 @@ src/User.i: src/User.cpp.i
 
 # target to preprocess a source file
 src/User.cpp.i:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/User.cpp.i
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/User.cpp.i
 .PHONY : src/User.cpp.i
 
 src/User.s: src/User.cpp.s
@@ -228,7 +228,7 @@ src/User.s: src/User.cpp.s
 
 # target to generate assembly for a file
 src/User.cpp.s:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/User.cpp.s
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/User.cpp.s
 .PHONY : src/User.cpp.s
 
 src/Watchable.o: src/Watchable.cpp.o
@@ -237,7 +237,7 @@ src/Watchable.o: src/Watchable.cpp.o
 
 # target to build an object file
 src/Watchable.cpp.o:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Watchable.cpp.o
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Watchable.cpp.o
 .PHONY : src/Watchable.cpp.o
 
 src/Watchable.i: src/Watchable.cpp.i
@@ -246,7 +246,7 @@ src/Watchable.i: src/Watchable.cpp.i
 
 # target to preprocess a source file
 src/Watchable.cpp.i:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Watchable.cpp.i
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Watchable.cpp.i
 .PHONY : src/Watchable.cpp.i
 
 src/Watchable.s: src/Watchable.cpp.s
@@ -255,7 +255,7 @@ src/Watchable.s: src/Watchable.cpp.s
 
 # target to generate assembly for a file
 src/Watchable.cpp.s:
-	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/src/Watchable.cpp.s
+	$(MAKE) -f CMakeFiles/Assingment1.dir/build.make CMakeFiles/Assingment1.dir/src/Watchable.cpp.s
 .PHONY : src/Watchable.cpp.s
 
 # Help Target
@@ -265,7 +265,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... Assignment1"
+	@echo "... Assingment1"
 	@echo "... edit_cache"
 	@echo "... src/Action.o"
 	@echo "... src/Action.i"

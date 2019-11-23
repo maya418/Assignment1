@@ -35,7 +35,7 @@ using namespace std;
             id++;
             content.push_back(movie);
         }
-        //run on all of the tv_series and add them to the content
+        //run over the tv_series and add them to the content
         for (const auto& item : j["tv_series"].items()){
             vector<string> tags;
             name = item.value()["name"];

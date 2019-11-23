@@ -77,6 +77,6 @@ string Episode::toString() const {
         seasonToPrint = "S";
     else
         seasonToPrint = "S0";
-    string toPrint = seriesName + seasonToPrint + to_string(season) + episodeToPrint + to_string(episode);
+    string toPrint = seriesName + " " + seasonToPrint + to_string(season) + episodeToPrint + to_string(episode);
     return toPrint;
 }

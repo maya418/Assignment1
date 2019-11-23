@@ -2,6 +2,7 @@
 // Created by maya on 11/18/19.
 //
 #include <sstream>
+#include <vector>
 #include "../include/Action.h"
 #include "../include/User.h"
 #include "../include/Session.h"
@@ -10,39 +11,39 @@
 
 using namespace std;
 
-BaseAction::BaseAction(){
+BaseAction::BaseAction() {
 
 }
 
-void BaseAction::act(Session& sess){
+void BaseAction::act(Session &sess) {
 
 }
 
-ActionStatus BaseAction::getStatus()const{
+ActionStatus BaseAction::getStatus() const {
     return status;
 }
 
-void BaseAction::complete(){
+void BaseAction::complete() {
     status = COMPLETED;
     cout << "complete";
 }
 
-void BaseAction::error(const std::string& errorMsg){
+void BaseAction::error(const std::string &errorMsg) {
     status = ERROR;
 }
 
-string BaseAction::getErrorMsg() const{
+string BaseAction::getErrorMsg() const {
     return errorMsg;
 }
 
-void CreateUser::act(Session& sess){
-    cout << "pending";
+void CreateUser::act(Session &sess) {
+    cout << "pending" << "\n";
     string action = sess.getUserAction();
-    vector<std::string>result = splitText(action);
+    vector<std::string> result = splitText(action);
     const string name = result[1];
     string preferredAlgo = result[2];
     if ((preferredAlgo.length() == 3) &&
-    (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
+        (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
         if (preferredAlgo == "len") {
             LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
             sess.getMap()->insert({name, newUser});
@@ -59,58 +60,54 @@ void CreateUser::act(Session& sess){
     }
 }
 
-void ChangeActiveUser::act(Session& sess){
+void ChangeActiveUser::act(Session &sess) {
     string action = sess.getUserAction();
-    vector<std::string>result = splitText(action);
+    vector<std::string> result = splitText(action);
     string name = result[1];
     cout << sess.contain(name);
-    if (sess.contain(name)){
+    if (sess.contain(name)) {
         sess.setActiveUser(sess.findUser(name));
         complete();
-    }
-    else
-    {
+    } else {
         //error();
     }
 }
 
-void DeleteUser::act(Session& sess){
+void DeleteUser::act(Session &sess) {
     string action = sess.getUserAction();
-    vector<std::string>result = splitText(action);
+    vector<std::string> result = splitText(action);
     string name = result[1];
-    if (sess.contain(name)){
+    if (sess.contain(name)) {
         sess.getMap()->erase(name);
         complete();
-    }
-    else
-    {
+    } else {
         //error();
     }
 }
 
-void DuplicateUser::act(Session& sess){
+void DuplicateUser::act(Session &sess) {
     string action = sess.getUserAction();
-    vector<std::string>result = splitText(action);
+    vector<std::string> result = splitText(action);
     string original_name = result[1];
     string new_name = result[2];
-    if (sess.contain(original_name) & !sess.contain(new_name)){
-        User* original_user = sess.findUser(original_name);
+    if (sess.contain(original_name) & !sess.contain(new_name)) {
+        User *original_user = sess.findUser(original_name);
         //original_user = new
         //User* new_user = new User(original_user , new_name);
         //sess.getMap()->insert({new_name, new_user});
         complete();
-    }
-    else{
+    } else {
         //error
     }
 }
 
-void PrintContentList::act(Session& sess){
-    for (int i = 0; i < sess.getContent().size(); i++){
-        Watchable* currentContent = sess.getContent()[i];
-        cout << currentContent->getId() << ". " << currentContent->toString() << " " << currentContent->getLength() << " minutes [";
+void PrintContentList::act(Session &sess) {
+    for (int i = 0; i < sess.getContent().size(); i++) {
+        Watchable *currentContent = sess.getContent()[i];
+        cout << currentContent->getId() << ". " << currentContent->toString() << " " << currentContent->getLength()
+             << " minutes [";
         for (int j = 0; j < currentContent->getTags().size(); j++) {
-            cout <<  currentContent->getTags()[j] ;
+            cout << currentContent->getTags()[j];
             if (j < currentContent->getTags().size() - 1)
                 cout << ", ";
         }
@@ -118,21 +115,21 @@ void PrintContentList::act(Session& sess){
     }
 }
 
-void PrintWatchHistory::act(Session& sess){
+void PrintWatchHistory::act(Session &sess) {
     cout << "watch history for " << sess.getActiveUser()->getName() << "\n";
-    for (int i = 0; i < sess.getActiveUser()->get_history().size(); i++){
-        cout << (i+1) << ". " << sess.getActiveUser()->get_history()[i]->toString() << "\n";
+    for (int i = 0; i < sess.getActiveUser()->get_history().size(); i++) {
+        cout << (i + 1) << ". " << sess.getActiveUser()-> get_history()[i]-> toString() << "\n";
     }
 }
 
-void Watch::act(Session& sess){
+void Watch::act(Session &sess) {
     string action = sess.getUserAction();
-    vector<std::string>result = splitText(action);
+    vector<std::string> result = splitText(action);
     string id = result[1];
-    Watchable* watch = sess.getContent()[(std::stoi(id) - 1)];
+    Watchable *watch = sess.getContent()[(std::stoi(id) - 1)];
     sess.getActiveUser()->set_history(watch);
     cout << "watching now " << watch->toString() << "\n";
-    Watchable* next = watch->getNextWatchable(sess);
+    Watchable *next = watch->getNextWatchable(sess);
     if (next != nullptr) {
         cout << "We recommend watching " << next->toString() << ", continue watching? [y/n]" << "\n";
         string answer;
@@ -146,24 +143,73 @@ void Watch::act(Session& sess){
 }
 
 
-//void PrintActionsLog::act(Session& sess){
+void PrintActionsLog::act(Session &sess) {
+    vector<BaseAction*> actionLog = sess.getActionsLog();
+    for (int i = (actionLog.size()-1); i >= 0; i--) {
+       cout << actionLog[i]->toString();
+    }
+}
 
-//}
 
-void Exit::act(Session& sess){
+
+void Exit::act(Session &sess) {
 
 }
 
-//string BaseAction::toString()const{
-
-//}
-
-vector<string> BaseAction::splitText(string action){
+vector<string> BaseAction::splitText(string action) {
     vector<std::string> result;
     std::istringstream iss(action);
-    for(std::string s; iss >> s; )
+    for (std::string s; iss >> s;)
         result.push_back(s);
     return result;
 }
 
 
+// ToString for every action start here:
+
+string BaseAction::toString() const {
+
+}
+
+string CreateUser::toString() const {
+
+    return "CreateUser";
+}
+
+string DeleteUser::toString() const {
+
+    return "DeleteUser";
+}
+
+string DuplicateUser::toString() const {
+
+    return "DuplicateUser";
+}
+string PrintWatchHistory::toString() const {
+
+    return "PrintWatchHistory";
+}
+
+string ChangeActiveUser::toString() const {
+
+    return "ChangeActiveUser";
+}
+
+string PrintContentList::toString() const {
+
+    return "PrintContentList";
+}
+
+string Watch::toString() const {
+
+    return "Watch";
+}
+
+string PrintActionsLog::toString() const {
+
+    return "PrintActionsLog";
+}
+string Exit::toString() const {
+
+    return "Exit";
+}

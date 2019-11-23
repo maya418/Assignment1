@@ -20,6 +20,7 @@ public:
 	void complete();
 	void error(const std::string& errorMsg);
 	std::string getErrorMsg() const;
+    virtual std::string toString() const=0;
     std::vector<std::string>splitText(std::string action);
     private:
 	std::string errorMsg;
@@ -54,32 +55,32 @@ public:
 class PrintContentList : public BaseAction {
 public:
 	virtual void act (Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 class PrintWatchHistory : public BaseAction {
 public:
 	virtual void act (Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 
 class Watch : public BaseAction {
 public:
 	virtual void act(Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 
 class PrintActionsLog : public BaseAction {
 public:
-	//virtual void act(Session& sess);
-	//virtual std::string toString() const;
+	virtual void act(Session& sess);
+	virtual std::string toString() const;
 };
 
 class Exit : public BaseAction {
 public:
 	virtual void act(Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 #endif

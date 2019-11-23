@@ -29,26 +29,26 @@ public:
 class CreateUser  : public BaseAction {
 public:
 	virtual void act(Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 class ChangeActiveUser : public BaseAction {
 public:
 	virtual void act(Session& sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 class DeleteUser : public BaseAction {
 public:
 	virtual void act(Session & sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 
 class DuplicateUser : public BaseAction {
 public:
 	virtual void act(Session & sess);
-	//virtual std::string toString() const;
+	virtual std::string toString() const;
 };
 
 class PrintContentList : public BaseAction {

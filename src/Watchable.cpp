@@ -80,3 +80,10 @@ string Episode::toString() const {
     string toPrint = seriesName + " " + seasonToPrint + to_string(season) + episodeToPrint + to_string(episode);
     return toPrint;
 }
+
+
+Watchable::~Watchable() {
+    delete[] &tags;
+//    &tags = nullptr;
+
+}

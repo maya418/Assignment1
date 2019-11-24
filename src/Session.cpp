@@ -59,7 +59,6 @@ using namespace std;
     void Session::start()
     {
         cout << "SPLFLIX is now on!" << endl;
-
         cout << "Please enter action" << endl;
         getline(cin , action);
         while(action.compare("exit") != 0){

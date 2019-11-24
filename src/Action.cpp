@@ -55,9 +55,10 @@ void CreateUser::act(Session &sess) {
             sess.getMap()->insert({name, newUser});
         }
         complete();
-        //error();
         // cout << "you got a problem my friend";
     }
+    else
+    error("name already exsist / none such algo exsist");
 }
 
 void ChangeActiveUser::act(Session &sess) {

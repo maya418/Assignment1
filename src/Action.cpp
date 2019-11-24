@@ -43,22 +43,25 @@ CreateUser::CreateUser(string name , string algorithm):name(name) , algorithm(al
 
 void CreateUser::act(Session &sess) {
     if ((algorithm.length() == 3) &&
-        (algorithm == "len" | algorithm == "rer" | algorithm == "gen") && !sess.contain(name)) {
-        if (algorithm == "len") {
-            LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
-        } else if (algorithm == "rer") {
-            RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
-        } else {
-            GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
+        (algorithm == "len" | algorithm == "rer" | algorithm == "gen")) {
+        if (!sess.contain(name)) {
+            if (algorithm == "len") {
+                LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            } else if (algorithm == "rer") {
+                RerunRecommenderUser* newUser = new RerunRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            } else {
+                GenreRecommenderUser* newUser = new GenreRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            }
+            complete();
+        } else{
+            error("wrong algorithm name");
         }
-        complete();
-        // cout << "you got a problem my friend";
     }
     else
-    error("name already exsist / none such algo exsist");
+        error("user already exist");
 }
 
 ChangeActiveUser::ChangeActiveUser(string name):name(name){
@@ -92,22 +95,24 @@ DuplicateUser::DuplicateUser(string otherName , string myName):otherName(otherNa
 }
 
 void DuplicateUser::act(Session &sess) {
-    if (sess.contain(otherName) & !sess.contain(myName)) {
-        User* original_user = sess.findUser(otherName);
-        if (original_user->getAlgorithm() == "len"){
-            LengthRecommenderUser *newUser = new LengthRecommenderUser(myName);
-            sess.getMap()->insert({myName, newUser});
-        }
-        else if (original_user->getAlgorithm() == "rer"){
-            RerunRecommenderUser *newUser = new RerunRecommenderUser(myName);
-            sess.getMap()->insert({myName, newUser});
-        } else if (original_user->getAlgorithm() == "len"){
-            GenreRecommenderUser *newUser = new GenreRecommenderUser(myName);
-            sess.getMap()->insert({myName, newUser});
-        }
-        complete();
+    if (sess.contain(otherName) ) {
+        if (!sess.contain(myName)) {
+            User *original_user = sess.findUser(otherName);
+            if (original_user->getAlgorithm() == "len") {
+                LengthRecommenderUser *newUser = new LengthRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            } else if (original_user->getAlgorithm() == "rer") {
+                RerunRecommenderUser *newUser = new RerunRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            } else if (original_user->getAlgorithm() == "gen") {
+                GenreRecommenderUser *newUser = new GenreRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            }
+            complete();
+        } else
+            error("user already exist");
     } else {
-        error("this user to duplicate doesn't exist");
+        error("this user to duplicate from doesn't exist");
     }
 }
 

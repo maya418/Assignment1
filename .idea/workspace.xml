@@ -13,9 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Action.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Action.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Session.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/User.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.cpp" afterDir="false" />
@@ -117,7 +114,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17eef145-a86b-4b5b-a8e4-4b2a704f5312" name="Default Changelist" comment="" />
+      <changelist id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="" />
       <created>1574080492858</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -129,6 +126,7 @@
       <workItem from="1574421264764" duration="15657000" />
       <workItem from="1574501888644" duration="7954000" />
       <workItem from="1574510230883" duration="4350000" />
+      <workItem from="1574616632457" duration="1632000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1574190409465</created>
@@ -200,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574449895811</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1574616809552</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1574616809552</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +238,11 @@
           <url>file://$PROJECT_DIR$/src/Main.cpp</url>
           <line>12</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/User.cpp</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

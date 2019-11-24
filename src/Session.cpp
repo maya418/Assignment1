@@ -66,26 +66,18 @@ using namespace std;
         while(action.compare("exit") != 0){
             string command = result[0];
             if (command.compare("createuser") == 0){
-                string name;
-                for (int find_name = 1; find_name < (result.size()-1); find_name++)
-                    name = name + " " + result[find_name];
-                CreateUser* createUser = new CreateUser(name , result[2]);
+                CreateUser* createUser = new CreateUser(result[1] , result[2]);
                 createUser->act(*this);
                 actionsLog.push_back(createUser);
             }
             else if (command.compare("changeuser") == 0){
-                string name;
-                for (int find_name = 1; find_name < result.size(); find_name++)
-                    name = name + " " + result[find_name];
-                ChangeActiveUser* changeUser = new ChangeActiveUser(name);
+                ChangeActiveUser* changeUser = new ChangeActiveUser(result[1]);
                 changeUser->act(*this);
                 actionsLog.push_back(changeUser);
             }
             else if (command.compare("deleteuser") == 0){
-                string name;
-                for (int find_name = 1; find_name < result.size(); find_name++)
-                    name = name + " " + result[find_name];
-                DeleteUser* deleteUser = new DeleteUser(name);
+
+                DeleteUser* deleteUser = new DeleteUser(result[1]);
                 deleteUser->act(*this);
                 actionsLog.push_back(deleteUser);
             }

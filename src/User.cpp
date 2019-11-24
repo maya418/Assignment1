@@ -110,12 +110,12 @@ Watchable* GenreRecommenderUser::getRecommendation(Session& s){
     string tag;
     for (int i = 0; i < history.size(); i++)//sum up the appearance of each tag
         for (int j = 0; j < history[i]->getTags().size(); j++) {
-            tag = history[i]->getTags()[j];/*
+            tag = history[i]->getTags()[j];
             if (tagsCount->find(tag) == tagsCount->end())//tag does not exist already
-                //tagsCount->insert(tag, 1);
+                tagsCount->insert({tag , 1});
             else{
                 tagsCount->find(tag)->second++;
-            }*/
+            }
         }
 
     return nullptr;

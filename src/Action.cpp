@@ -48,15 +48,12 @@ void CreateUser::act(Session &sess) {
             if (algorithm == "len") {
                 LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
                 sess.getMap()->insert({name, newUser});
-                delete newUser;
             } else if (algorithm == "rer") {
                 RerunRecommenderUser* newUser = new RerunRecommenderUser(name);
                 sess.getMap()->insert({name, newUser});
-                delete newUser;
             } else {
                 GenreRecommenderUser* newUser = new GenreRecommenderUser(name);
                 sess.getMap()->insert({name, newUser});
-                delete newUser;
             }
             complete();
         } else{
@@ -86,6 +83,7 @@ DeleteUser::DeleteUser(string name):name(name){
 
 void DeleteUser::act(Session &sess) {
     if (sess.contain(name)) {
+        delete sess.findUser(name);
         sess.getMap()->erase(name);
         complete();
     } else {

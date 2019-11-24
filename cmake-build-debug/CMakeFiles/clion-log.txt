@@ -1,4 +1,4 @@
-"/home/shokty/שולחן העבודה/clion-2019.2.5/bin/cmake/linux/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/shokty/CLionProjects/Assingment1
+/media/maya/F6C47AEDC47AB00B/Programs/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/shokty/CLionProjects/Assingment1/cmake-build-debug
+-- Build files have been written to: /media/maya/F6C47AEDC47AB00B/Maya/University/Spl/Assignment1/cmake-build-debug

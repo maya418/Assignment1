@@ -57,11 +57,11 @@ void CreateUser::act(Session &sess) {
             }
             complete();
         } else{
-            error("wrong algorithm name");
+            error("user already exist");
         }
     }
     else
-        error("user already exist");
+        error("wrong algorithm name");
 }
 
 ChangeActiveUser::ChangeActiveUser(string name):name(name){

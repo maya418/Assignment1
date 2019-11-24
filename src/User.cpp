@@ -4,6 +4,7 @@
 #include "../include/User.h"
 #include "../include/Watchable.h"
 #include "../include/Session.h"
+#include <map>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ User::User(const User* other , const std::string &name):name(name){
     for (int i=0; i<other->get_history().size(); i++)
         history.push_back(other->get_history()[i]);
 }
-
+/*
 const User& User::operator=(const User& other){
     if(this != &other) {
         for (int i=0; i<other.get_history().size(); i++)
@@ -29,7 +30,7 @@ const User& User::operator=(const User& other){
     }
     return *this;
 }
-
+*/
 Watchable* User::getRecommendation(Session& s){
     return nullptr;
 }
@@ -87,7 +88,7 @@ string RerunRecommenderUser::getAlgorithm(){
 
 //find the next recommended content to watched based on Rerun Algorithm
 Watchable* RerunRecommenderUser::getRecommendation(Session& s){
-    if (lastRecommendedId == -1)/*first content user had watched*/ {
+    if (lastRecommendedId == -1)/*first content user have watched*/ {
         lastRecommendedId = 0;
         return nullptr;
     }
@@ -106,19 +107,49 @@ string GenreRecommenderUser::getAlgorithm(){
 }
 
 Watchable* GenreRecommenderUser::getRecommendation(Session& s){
-    unordered_map<string , int>* tagsCount;
-    string tag;
-    for (int i = 0; i < history.size(); i++)//sum up the appearance of each tag
-        for (int j = 0; j < history[i]->getTags().size(); j++) {
-            tag = history[i]->getTags()[j];
-            if (tagsCount->find(tag) == tagsCount->end())//tag does not exist already
-                tagsCount->insert({tag , 1});
-            else{
-                tagsCount->find(tag)->second++;
+    if (history.size() != 0) {
+        map<string, int> tagsCount;
+        string tag;
+        for (int i = 0; i < history.size(); i++) {//sum up the appearance of each tag
+            for (int j = 0; j < history[i]->getTags().size(); j++) {
+                tag = history[i]->getTags()[j];
+                if (tagsCount.find(tag) == tagsCount.end())//tag does not exist already
+                    tagsCount.insert({tag, 1});
+                else {
+                    tagsCount.find(tag)->second++;
+                }
             }
         }
 
+        string bestTag = getBestTag(tagsCount);
+        tagsCount.erase(bestTag);
+
+        while (bestTag != "") {
+            for (int i = 0; i < s.getContent().size(); i++) {
+                if (!hasWatched(s.getContent()[i]))/*if user hasn't watched this content yes*/ {
+                    for (int j = 0; j < s.getContent()[i]->getTags().size(); j++)
+                        if (s.getContent()[i]->getTags()[j] == bestTag)
+                            return s.getContent()[i];
+                }
+            }
+            bestTag = getBestTag(tagsCount);
+            tagsCount.erase(bestTag);
+        }
+    }
+
     return nullptr;
+}
+
+string GenreRecommenderUser::getBestTag(map<string , int> tagsCount){
+    string mostUsedTag = "";
+    int usesOfBestTag = 0;
+    for(auto it=tagsCount.begin();it!=tagsCount.end();it++) {
+        if(it->second > usesOfBestTag){
+            usesOfBestTag = it->second;
+            mostUsedTag = it->first;
+        }
+    }
+    return mostUsedTag;
 }
 
 //this function return true if the user already watched a show or false if he hasn't.

@@ -13,4 +13,4 @@ add_executable(Assingment1
         include/Watchable.h
         src/Main.cpp
         src/User.cpp
-        src/Watchable.cpp)
+        src/Watchable.cpp src/Session.cpp src/Action.cpp)

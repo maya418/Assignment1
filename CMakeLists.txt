@@ -1,11 +1,18 @@
 cmake_minimum_required(VERSION 3.15)
-project(Assignment1)
+project(Assingment1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Assignment1
-        include/Session.h
+include_directories(include)
+
+add_executable(Assingment1
+        include/Action.h
         include/json.hpp
+        include/Session.h
         include/User.h
         include/Watchable.h
-        src/Main.cpp src/Session.cpp src/Action.cpp src/Watchable.cpp src/User.cpp include/Action.h)
+        src/Action.cpp
+        src/Main.cpp
+        src/Session.cpp
+        src/User.cpp
+        src/Watchable.cpp)

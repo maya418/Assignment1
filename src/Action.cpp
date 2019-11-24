@@ -13,6 +13,7 @@ using namespace std;
 
 BaseAction::BaseAction() {
 
+
 }
 
 void BaseAction::act(Session &sess) {
@@ -25,10 +26,10 @@ ActionStatus BaseAction::getStatus() const {
 
 void BaseAction::complete() {
     status = COMPLETED;
-    cout << "complete";
 }
 
 void BaseAction::error(const std::string &errorMsg) {
+    this->errorMsg = errorMsg;
     status = ERROR;
 }
 
@@ -37,7 +38,6 @@ string BaseAction::getErrorMsg() const {
 }
 
 void CreateUser::act(Session &sess) {
-    cout << "pending" << "\n";
     string action = sess.getUserAction();
     vector<std::string> result = splitText(action);
     const string name = result[1];
@@ -55,9 +55,10 @@ void CreateUser::act(Session &sess) {
             sess.getMap()->insert({name, newUser});
         }
         complete();
-        //error();
         // cout << "you got a problem my friend";
     }
+    else
+    error("name already exsist / none such algo exsist");
 }
 
 void ChangeActiveUser::act(Session &sess) {
@@ -69,7 +70,7 @@ void ChangeActiveUser::act(Session &sess) {
         sess.setActiveUser(sess.findUser(name));
         complete();
     } else {
-        //error();
+        error("this user does`nt exsist");
     }
 }
 
@@ -81,7 +82,7 @@ void DeleteUser::act(Session &sess) {
         sess.getMap()->erase(name);
         complete();
     } else {
-        //error();
+        error("did`nt find this user to delete");
     }
 }
 
@@ -97,7 +98,7 @@ void DuplicateUser::act(Session &sess) {
         //sess.getMap()->insert({new_name, new_user});
         complete();
     } else {
-        //error
+        error("this user does`nt exsist so we cant Duplicate");
     }
 }
 
@@ -118,7 +119,7 @@ void PrintContentList::act(Session &sess) {
 void PrintWatchHistory::act(Session &sess) {
     cout << "watch history for " << sess.getActiveUser()->getName() << "\n";
     for (int i = 0; i < sess.getActiveUser()->get_history().size(); i++) {
-        cout << (i + 1) << ". " << sess.getActiveUser()-> get_history()[i]-> toString() << "\n";
+        cout << (i + 1) << ". " << sess.getActiveUser()->get_history()[i]->toString() << "\n";
     }
 }
 
@@ -144,16 +145,24 @@ void Watch::act(Session &sess) {
 
 
 void PrintActionsLog::act(Session &sess) {
-    vector<BaseAction*> actionLog = sess.getActionsLog();
-    for (int i = (actionLog.size()-1); i >= 0; i--) {
-       cout << actionLog[i]->toString();
+    vector<BaseAction *> actionLog = sess.getActionsLog();
+    for (int i = (actionLog.size() - 1); i >= 0; i--) {
+        cout << actionLog[i]->toString() + " ";
+        ActionStatus k = actionLog[i]->getStatus();
+        if (k==COMPLETED)
+            cout << "complete";
+        else if (k==PENDING)
+            cout << "PENDING";
+        else if (k == ERROR)
+            cout << actionLog[i]->getErrorMsg();
+        cout <<  "\n";
     }
-}
+    complete();
+}  //Printing all user action logs from end to start
 
 
 
 void Exit::act(Session &sess) {
-
 }
 
 vector<string> BaseAction::splitText(string action) {
@@ -172,7 +181,6 @@ string BaseAction::toString() const {
 }
 
 string CreateUser::toString() const {
-
     return "CreateUser";
 }
 
@@ -185,6 +193,7 @@ string DuplicateUser::toString() const {
 
     return "DuplicateUser";
 }
+
 string PrintWatchHistory::toString() const {
 
     return "PrintWatchHistory";
@@ -209,6 +218,7 @@ string PrintActionsLog::toString() const {
 
     return "PrintActionsLog";
 }
+
 string Exit::toString() const {
 
     return "Exit";

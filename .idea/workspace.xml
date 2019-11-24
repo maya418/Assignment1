@@ -88,12 +88,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Assignment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assignment1" TARGET_NAME="Assignment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assignment1" RUN_TARGET_NAME="Assignment1">
+  <component name="RunManager" selected="CMake Application.Assignment1">
+    <configuration name="Assignment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assignment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assignment1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Assingment1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.Assignment1" />
+      <item itemvalue="CMake Application.Assingment1" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />

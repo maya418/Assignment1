@@ -123,6 +123,8 @@ vector<string> Session::splitText(string action) {
 }
 
     void Session::setActiveUser(User* user){
+        if (activeUser->getName() == "default")
+            delete activeUser;
         activeUser = user;
     }
 
@@ -141,7 +143,7 @@ vector<string> Session::splitText(string action) {
     }
 
     User* Session::findUser(string name){
-        unordered_map<string,User*>::const_iterator got = userMap.find (name);
+        unordered_map<string,User*>::const_iterator got = userMap.find(name);
         User* user = got->second;
         return user;
     }

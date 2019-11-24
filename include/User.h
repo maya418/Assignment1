@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <unordered_set>
-#include <unordered_map>
+#include <map>
 
 class Watchable;
 class Session;
@@ -52,6 +52,7 @@ public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
     std::string getAlgorithm();
+    std::string getBestTag(std::map<std::string , int> tagsCount);
 private:
     std::string algorithm;
 };

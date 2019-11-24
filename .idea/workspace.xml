@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/User.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.cpp" afterDir="false" />
@@ -99,7 +100,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Assingment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
+    <configuration name="Assingment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config2.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -126,7 +127,8 @@
       <workItem from="1574421264764" duration="15657000" />
       <workItem from="1574501888644" duration="7954000" />
       <workItem from="1574510230883" duration="4350000" />
-      <workItem from="1574616632457" duration="1632000" />
+      <workItem from="1574616632457" duration="6922000" />
+      <workItem from="1574623735167" duration="1085000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1574190409465</created>
@@ -205,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574616809552</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1574618287634</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1574618287634</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,9 +249,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/User.cpp</url>
+          <url>file://$PROJECT_DIR$/src/Session.cpp</url>
           <line>108</line>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

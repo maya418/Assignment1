@@ -61,7 +61,6 @@ using namespace std;
         cout << "SPLFLIX is now on!" << endl;
         cout << "Please enter action" << endl;
         getline(cin , action);
-        while(action.compare("exit") != 0){
             string command = action.substr(0 , action.find(" "));
             if (command.compare("createuser") == 0){
                 CreateUser* createUser = new CreateUser();

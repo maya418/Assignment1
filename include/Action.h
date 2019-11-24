@@ -21,7 +21,6 @@ public:
 	void error(const std::string& errorMsg);
 	std::string getErrorMsg() const;
     virtual std::string toString() const=0;
-    std::vector<std::string>splitText(std::string action);
     private:
 	std::string errorMsg;
 	ActionStatus status;
@@ -29,27 +28,46 @@ public:
 
 class CreateUser  : public BaseAction {
 public:
+    CreateUser(std::string name , std::string algorithm);
 	virtual void act(Session& sess);
 	virtual std::string toString() const;
+
+private:
+    std::string name;
+    std::string algorithm;
 };
 
 class ChangeActiveUser : public BaseAction {
 public:
+    ChangeActiveUser(std::string name);
 	virtual void act(Session& sess);
 	virtual std::string toString() const;
+
+private:
+    std::string name;
 };
 
 class DeleteUser : public BaseAction {
 public:
+    DeleteUser(std::string name);
 	virtual void act(Session & sess);
 	virtual std::string toString() const;
+
+private:
+    std::string name;
 };
 
 
 class DuplicateUser : public BaseAction {
 public:
+    DuplicateUser(std::string otherName , std::string myName);
 	virtual void act(Session & sess);
 	virtual std::string toString() const;
+
+
+private:
+    std::string otherName;
+    std::string myName;
 };
 
 class PrintContentList : public BaseAction {
@@ -67,8 +85,12 @@ public:
 
 class Watch : public BaseAction {
 public:
+    Watch(std::string id);
 	virtual void act(Session& sess);
 	virtual std::string toString() const;
+
+private:
+    std::string id;
 };
 
 

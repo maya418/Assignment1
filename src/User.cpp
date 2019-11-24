@@ -12,6 +12,10 @@ User::User(const std::string& name):name(name) {
 
 }
 
+string User::getAlgorithm(){
+
+}
+
 //copy constructor
 User::User(const User* other , const std::string &name):name(name){
     for (int i=0; i<other->get_history().size(); i++)
@@ -44,7 +48,11 @@ void User::set_history(Watchable* watch){
 
 //constructor
 LengthRecommenderUser::LengthRecommenderUser(const string& name) : User(name) {
+    algorithm = "len";
+}
 
+string LengthRecommenderUser::getAlgorithm(){
+    return algorithm;
 }
 
 //find the next recommended content to watched based on Length Algorithm
@@ -68,8 +76,14 @@ Watchable* LengthRecommenderUser::getRecommendation(Session& s){
 }
 
 RerunRecommenderUser::RerunRecommenderUser(const std::string& name): User(name){
+    algorithm = "rer";
     lastRecommendedId = -1;
 }
+
+string RerunRecommenderUser::getAlgorithm(){
+    return algorithm;
+}
+
 
 //find the next recommended content to watched based on Rerun Algorithm
 Watchable* RerunRecommenderUser::getRecommendation(Session& s){
@@ -84,7 +98,27 @@ Watchable* RerunRecommenderUser::getRecommendation(Session& s){
 
 //constructor
 GenreRecommenderUser::GenreRecommenderUser(const std::string &name): User(name){
+    algorithm = "gen";
+}
 
+string GenreRecommenderUser::getAlgorithm(){
+    return algorithm;
+}
+
+Watchable* GenreRecommenderUser::getRecommendation(Session& s){
+    unordered_map<string , int>* tagsCount;
+    string tag;
+    for (int i = 0; i < history.size(); i++)//sum up the appearance of each tag
+        for (int j = 0; j < history[i]->getTags().size(); j++) {
+            tag = history[i]->getTags()[j];
+            if (tagsCount->find(tag) == tagsCount->end())//tag does not exist already
+                tagsCount->insert({tag , 1});
+            else{
+                tagsCount->find(tag)->second++;
+            }
+        }
+
+    return nullptr;
 }
 
 //this function return true if the user already watched a show or false if he hasn't.
@@ -94,12 +128,6 @@ bool User::hasWatched(Watchable* watch){
             return true;
     return false;
 }
-
-Watchable* GenreRecommenderUser::getRecommendation(Session& s){
-    Watchable* a;
-    return a;
-}
-
 
 
 

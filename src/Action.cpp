@@ -37,72 +37,82 @@ string BaseAction::getErrorMsg() const {
     return errorMsg;
 }
 
+CreateUser::CreateUser(string name , string algorithm):name(name) , algorithm(algorithm){
+
+}
+
 void CreateUser::act(Session &sess) {
-    string action = sess.getUserAction();
-    vector<std::string> result = splitText(action);
-    const string name = result[1];
-    string preferredAlgo = result[2];
-    if ((preferredAlgo.length() == 3) &&
-        (preferredAlgo == "len" | preferredAlgo == "rer" | preferredAlgo == "gen") && !sess.contain(name)) {
-        if (preferredAlgo == "len") {
-            LengthRecommenderUser *newUser = new LengthRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
-        } else if (preferredAlgo == "rer") {
-            RerunRecommenderUser *newUser = new RerunRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
-        } else {
-            GenreRecommenderUser *newUser = new GenreRecommenderUser(name);
-            sess.getMap()->insert({name, newUser});
+    if ((algorithm.length() == 3) &&
+        (algorithm == "len" | algorithm == "rer" | algorithm == "gen")) {
+        if (!sess.contain(name)) {
+            if (algorithm == "len") {
+                LengthRecommenderUser* newUser = new LengthRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            } else if (algorithm == "rer") {
+                RerunRecommenderUser* newUser = new RerunRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            } else {
+                GenreRecommenderUser* newUser = new GenreRecommenderUser(name);
+                sess.getMap()->insert({name, newUser});
+            }
+            complete();
+        } else{
+            error("wrong algorithm name");
         }
-        complete();
     }
-    else{
-        if (sess.contain(name))
-            error("This username is used");
-        else
-            error("no such Algo exists");
-    }
+    else
+        error("user already exist");
+}
+
+ChangeActiveUser::ChangeActiveUser(string name):name(name){
 
 }
 
 void ChangeActiveUser::act(Session &sess) {
-    string action = sess.getUserAction();
-    vector<std::string> result = splitText(action);
-    string name = result[1];
-    cout << sess.contain(name);
     if (sess.contain(name)) {
         sess.setActiveUser(sess.findUser(name));
         complete();
     } else {
-        error("this user does`nt exsist");
+        error("this user doesn't exist");
     }
 }
 
+DeleteUser::DeleteUser(string name):name(name){
+
+}
+
 void DeleteUser::act(Session &sess) {
-    string action = sess.getUserAction();
-    vector<std::string> result = splitText(action);
-    string name = result[1];
     if (sess.contain(name)) {
         sess.getMap()->erase(name);
         complete();
     } else {
-        error("did`nt find this user to delete");
+        error("didn't find a user with this name to delete");
     }
 }
 
+DuplicateUser::DuplicateUser(string otherName , string myName):otherName(otherName) , myName(myName){
+
+}
+
 void DuplicateUser::act(Session &sess) {
-    string action = sess.getUserAction();
-    vector<std::string> result = splitText(action);
-    string original_name = result[1];
-    string new_name = result[2];
-    if (sess.contain(original_name) & !sess.contain(new_name)) {
-        User *original_user = sess.findUser(original_name);
-        //original_user = new
-        //User* new_user = new User(original_user , new_name);
-        //sess.getMap()->insert({new_name, new_user});
-        complete();
+    if (sess.contain(otherName) ) {
+        if (!sess.contain(myName)) {
+            User *original_user = sess.findUser(otherName);
+            if (original_user->getAlgorithm() == "len") {
+                LengthRecommenderUser *newUser = new LengthRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            } else if (original_user->getAlgorithm() == "rer") {
+                RerunRecommenderUser *newUser = new RerunRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            } else if (original_user->getAlgorithm() == "gen") {
+                GenreRecommenderUser *newUser = new GenreRecommenderUser(myName);
+                sess.getMap()->insert({myName, newUser});
+            }
+            complete();
+        } else
+            error("user already exist");
     } else {
-        error("this user does`nt exsist so we cant Duplicate");
+        error("this user to duplicate from doesn't exist");
     }
 }
 
@@ -118,6 +128,7 @@ void PrintContentList::act(Session &sess) {
         }
         cout << "]" << "\n";
     }
+    complete();
 }
 
 void PrintWatchHistory::act(Session &sess) {
@@ -125,12 +136,14 @@ void PrintWatchHistory::act(Session &sess) {
     for (int i = 0; i < sess.getActiveUser()->get_history().size(); i++) {
         cout << (i + 1) << ". " << sess.getActiveUser()->get_history()[i]->toString() << "\n";
     }
+    complete();
+}
+
+Watch::Watch(string id):id(id){
+
 }
 
 void Watch::act(Session &sess) {
-    string action = sess.getUserAction();
-    vector<std::string> result = splitText(action);
-    string id = result[1];
     Watchable *watch = sess.getContent()[(std::stoi(id) - 1)];
     sess.getActiveUser()->set_history(watch);
     cout << "watching now " << watch->toString() << "\n";
@@ -141,7 +154,7 @@ void Watch::act(Session &sess) {
         getline(cin, answer);
         if (answer == "y") {
             complete();
-            sess.setUserAction("watch " + std::to_string(next->getId()));
+            id = to_string(next->getId());
             act(sess);
         } else complete();
     } else complete();
@@ -152,12 +165,12 @@ void PrintActionsLog::act(Session &sess) {
     vector<BaseAction *> actionLog = sess.getActionsLog();
     for (int i = (actionLog.size() - 1); i >= 0; i--) {
         cout << actionLog[i]->toString() + " ";
-        ActionStatus k = actionLog[i]->getStatus();
-        if (k==COMPLETED)
+        ActionStatus status = actionLog[i]->getStatus();
+        if (status==COMPLETED)
             cout << "complete";
-        else if (k==PENDING)
+        else if (status==PENDING)
             cout << "PENDING";
-        else if (k == ERROR)
+        else if (status == ERROR)
             cout << actionLog[i]->getErrorMsg();
         cout <<  "\n";
     }
@@ -168,15 +181,6 @@ void PrintActionsLog::act(Session &sess) {
 
 void Exit::act(Session &sess) {
 }
-
-vector<string> BaseAction::splitText(string action) {
-    vector<std::string> result;
-    std::istringstream iss(action);
-    for (std::string s; iss >> s;)
-        result.push_back(s);
-    return result;
-}
-
 
 // ToString for every action start here:
 

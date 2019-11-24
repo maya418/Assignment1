@@ -11,10 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17eef145-a86b-4b5b-a8e4-4b2a704f5312" name="Default Changelist" comment="">
+    <list default="true" id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,6 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="full.screen.before.presentation.mode" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -93,13 +93,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.Assignment1">
-    <configuration name="Assignment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
+  <component name="RunManager" selected="CMake Application.Assingment1">
+    <configuration name="Assignment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assignment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assignment1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Assingment1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
+    <configuration name="Assingment1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;../config1.json&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assingment1" TARGET_NAME="Assingment1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assingment1" RUN_TARGET_NAME="Assingment1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -114,7 +114,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17eef145-a86b-4b5b-a8e4-4b2a704f5312" name="Default Changelist" comment="" />
+      <changelist id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="" />
       <created>1574080492858</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -126,11 +126,7 @@
       <workItem from="1574421264764" duration="15657000" />
       <workItem from="1574501888644" duration="7954000" />
       <workItem from="1574510230883" duration="4350000" />
-      <workItem from="1574517548140" duration="37000" />
-      <workItem from="1574517586274" duration="2706000" />
-      <workItem from="1574521912750" duration="4439000" />
-      <workItem from="1574590456082" duration="2430000" />
-      <workItem from="1574616612749" duration="1684000" />
+      <workItem from="1574616632457" duration="1632000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1574190409465</created>
@@ -202,19 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574449895811</updated>
     </task>
-    <task id="LOCAL‎00011" summary="first commit">
-      <created>1574525502555</created>
-      <option name="number" value="LOCAL‎00011" />
-      <option name="presentableId" value="LOCAL‎00011" />
-      <updated>1574525502555</updated>
+    <task id="LOCAL-00011" summary="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1574616809552</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1574616809552</updated>
     </task>
-    <task id="LOCAL‎00012" summary="first commit">
-      <created>1574590906554</created>
-      <option name="number" value="LOCAL‎00012" />
-      <option name="presentableId" value="LOCAL‎00012" />
-      <updated>1574590906554</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +227,24 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;include/Action.h" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Main.cpp</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/User.cpp</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

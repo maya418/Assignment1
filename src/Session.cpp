@@ -60,26 +60,37 @@ using namespace std;
     {
         cout << "SPLFLIX is now on!" << endl;
         cout << "Please enter action" << endl;
+        string action;
         getline(cin , action);
+        vector<string> result = splitText(action);
         while(action.compare("exit") != 0){
-            string command = action.substr(0 , action.find(" "));
+            string command = result[0];
             if (command.compare("createuser") == 0){
-                CreateUser* createUser = new CreateUser();
+                string name;
+                for (int find_name = 1; find_name < (result.size()-1); find_name++)
+                    name = name + " " + result[find_name];
+                CreateUser* createUser = new CreateUser(name , result[2]);
                 createUser->act(*this);
                 actionsLog.push_back(createUser);
             }
             else if (command.compare("changeuser") == 0){
-                ChangeActiveUser* changeUser = new ChangeActiveUser();
+                string name;
+                for (int find_name = 1; find_name < result.size(); find_name++)
+                    name = name + " " + result[find_name];
+                ChangeActiveUser* changeUser = new ChangeActiveUser(name);
                 changeUser->act(*this);
                 actionsLog.push_back(changeUser);
             }
             else if (command.compare("deleteuser") == 0){
-                DeleteUser* deleteUser = new DeleteUser();
+                string name;
+                for (int find_name = 1; find_name < result.size(); find_name++)
+                    name = name + " " + result[find_name];
+                DeleteUser* deleteUser = new DeleteUser(name);
                 deleteUser->act(*this);
                 actionsLog.push_back(deleteUser);
             }
             else if (command.compare("dupuser") == 0){
-                DuplicateUser* duplicateUser = new DuplicateUser();
+                DuplicateUser* duplicateUser = new DuplicateUser(result[1] , result[2]);
                 duplicateUser->act(*this);
                 actionsLog.push_back(duplicateUser);
             }
@@ -89,7 +100,7 @@ using namespace std;
                 actionsLog.push_back(printContentList);
             }
             else if (command.compare("watch") == 0){
-                Watch* watch = new Watch();
+                Watch* watch = new Watch(result[1]);
                 watch->act(*this);
                 actionsLog.push_back(watch);
             }
@@ -104,10 +115,20 @@ using namespace std;
                 actionsLog.push_back(printActionsLog);
             }
             getline(cin , action);
+            result = splitText(action);
         }
         //Exit session
 
     }
+
+
+vector<string> Session::splitText(string action) {
+    vector<std::string> result;
+    std::istringstream iss(action);
+    for (std::string s; iss >> s;)
+        result.push_back(s);
+    return result;
+}
 
     void Session::setActiveUser(User* user){
         activeUser = user;
@@ -115,14 +136,6 @@ using namespace std;
 
     User* Session::getActiveUser(){
         return activeUser;
-    }
-
-    string Session::getUserAction(){
-        return action;
-    }
-
-    void Session::setUserAction(string action){
-        this->action = action;
     }
 
     vector<Watchable*> Session::getContent(){

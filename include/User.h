@@ -19,6 +19,7 @@ public:
     std::vector<Watchable*> get_history() const;
     void set_history(Watchable* watch);
     bool hasWatched(Watchable* watch);
+    virtual std::string getAlgorithm();
 protected:
     std::vector<Watchable*> history;
 private:
@@ -31,14 +32,18 @@ class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+    std::string getAlgorithm();
 private:
+    std::string algorithm;
 };
 
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+    std::string getAlgorithm();
 private:
+    std::string algorithm;
     int lastRecommendedId;
 };
 
@@ -46,7 +51,9 @@ class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(const std::string& name);
     virtual Watchable* getRecommendation(Session& s);
+    std::string getAlgorithm();
 private:
+    std::string algorithm;
 };
 
 #endif

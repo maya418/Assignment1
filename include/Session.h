@@ -17,12 +17,12 @@ public:
     void setActiveUser(User* user);
 
     User* getActiveUser();
-    std::string getUserAction();
     void setUserAction(std::string action);
     std::vector<Watchable*> getContent();
 
     bool contain(std::string name);
     User* findUser(std::string name);
+    std::vector<std::string>splitText(std::string action);
     std::unordered_map<std::string,User*>* getMap();
     std::vector<BaseAction*> getActionsLog();
 private:
@@ -30,6 +30,5 @@ private:
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
-    std::string action;
 };
 #endif

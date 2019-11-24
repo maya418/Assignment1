@@ -13,6 +13,7 @@ class User{
 public:
     User(const std::string& name);
     const User& operator=(const User &other);
+    virtual ~User();
     User(const User* other , const std::string &name);
     virtual Watchable* getRecommendation(Session& s) = 0;
     std::string getName() const;

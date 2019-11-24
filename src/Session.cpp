@@ -55,7 +55,25 @@ Session::Session(const string &configFilePath) {
     }
     activeUser = new LengthRecommenderUser("default");//create default user
 }
-//~Session();
+Session::~Session(){
+   for (int i = 0; i < content.size(); i++){
+       delete(content[i]);
+   }
+   content.clear();
+
+    for(auto it=userMap.begin();it!=userMap.end();it++) {
+       delete it->second;
+    }
+
+    userMap.clear();
+
+    for (int i = 0; i < actionsLog.size(); i++){
+        delete(actionsLog[i]);
+    }
+    actionsLog.clear();
+
+   delete(activeUser);
+}
 void Session::start()
 {
     cout << "SPLFLIX is now on!" << endl;

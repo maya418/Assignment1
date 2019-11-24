@@ -12,7 +12,7 @@ class Watchable;
 class Session{
 public:
     Session(const std::string &configFilePath);
-    //~Session();
+    ~Session();
     void start();
     void setActiveUser(User* user);
 

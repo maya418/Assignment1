@@ -160,6 +160,7 @@ bool User::hasWatched(Watchable* watch){
     return false;
 }
 
-
-
+User::~User() {
+    history.clear();
+}
 

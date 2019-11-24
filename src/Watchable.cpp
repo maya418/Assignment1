@@ -83,7 +83,5 @@ string Episode::toString() const {
 
 
 Watchable::~Watchable() {
-    delete[] &tags;
-//    &tags = nullptr;
-
+  tags.clear();
 }

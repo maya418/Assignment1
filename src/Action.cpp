@@ -100,13 +100,14 @@ void DuplicateUser::act(Session &sess) {
         if (!sess.contain(myName)) {
             User *original_user = sess.findUser(otherName);
             if (original_user->getAlgorithm() == "len") {
-                LengthRecommenderUser *newUser = new LengthRecommenderUser(myName);
+                LengthRecommenderUser* newUser = new LengthRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
+                delete(newUser);
             } else if (original_user->getAlgorithm() == "rer") {
-                RerunRecommenderUser *newUser = new RerunRecommenderUser(myName);
+                RerunRecommenderUser* newUser = new RerunRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
             } else if (original_user->getAlgorithm() == "gen") {
-                GenreRecommenderUser *newUser = new GenreRecommenderUser(myName);
+                GenreRecommenderUser* newUser = new GenreRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
             }
             complete();

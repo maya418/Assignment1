@@ -62,9 +62,10 @@ Session::~Session() {
     }
     content.clear();
 
-    for(int i = map) {
-        userMap.erase()
-    } //Meanwhile from first test`s the userMap.clear(); commend already does it.
+    for (auto it=userMap.begin(); it!=userMap.end(); it++){
+        delete it -> second;
+    }
+    /*Meanwhile from first test`s the userMap.clear(); commend already does it.*/
     userMap.clear();
 
     for (int i = 0; i < actionsLog.size(); i++) {

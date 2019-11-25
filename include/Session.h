@@ -11,12 +11,13 @@ class Watchable;
 class Session{
 public:
     Session(const std::string &configFilePath);
-    Session(const Session &sess);
-    ~Session();
+    Session(const Session &sess); // Copy Constructor
+    ~Session();   // Destructor
+    Session& operator=(const Session &other);   // Copy Assignment
+    Session& operator=(Session &&other);    // Move Assignment
     void start();
     void setActiveUser(User* user);
     User* getActiveUser();
-    void setUserAction(std::string action);
     std::vector<Watchable*> getContent();
     bool contain(std::string name);
     User* findUser(std::string name);

@@ -22,7 +22,7 @@ User::User(const User* other , const std::string &name):name(name){
     for (int i=0; i<other->get_history().size(); i++)
         history.push_back(other->get_history()[i]);
 }
-/*
+
 const User& User::operator=(const User& other){
     if(this != &other) {
         for (int i=0; i<other.get_history().size(); i++)
@@ -30,7 +30,7 @@ const User& User::operator=(const User& other){
     }
     return *this;
 }
-*/
+
 Watchable* User::getRecommendation(Session& s){
     return nullptr;
 }
@@ -177,7 +177,3 @@ bool User::hasWatched(Watchable* watch){
 User::~User() {
     history.clear();
 }
-
-
-//LengthRecommenderUser::~LengthRecommenderUser(){
-//}

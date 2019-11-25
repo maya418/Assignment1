@@ -100,13 +100,14 @@ void DuplicateUser::act(Session &sess) {
         if (!sess.contain(myName)) {
             User *original_user = sess.findUser(otherName);
             if (original_user->getAlgorithm() == "len") {
-                LengthRecommenderUser* newUser = new LengthRecommenderUser(original_user , myName);
+                LengthRecommenderUser* newUser = new LengthRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
+                delete(newUser);
             } else if (original_user->getAlgorithm() == "rer") {
-                RerunRecommenderUser* newUser = new RerunRecommenderUser(original_user , myName);
+                RerunRecommenderUser* newUser = new RerunRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
             } else if (original_user->getAlgorithm() == "gen") {
-                GenreRecommenderUser* newUser = new GenreRecommenderUser(original_user , myName);
+                GenreRecommenderUser* newUser = new GenreRecommenderUser(myName);
                 sess.getMap()->insert({myName, newUser});
             }
             complete();
@@ -147,7 +148,7 @@ Watch::Watch(string id):id(id){
 void Watch::act(Session &sess) {
     Watchable *watch = sess.getContent()[(std::stoi(id) - 1)];
     sess.getActiveUser()->set_history(watch);
-    cout << "watching " << watch->toString() << "\n";
+    cout << "watching now " << watch->toString() << "\n";
     Watchable *next = watch->getNextWatchable(sess);
     if (next != nullptr) {
         cout << "We recommend watching " << next->toString() << ", continue watching? [y/n]" << "\n";

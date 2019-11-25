@@ -14,7 +14,11 @@
     <list default="true" id="e1e2ea32-4053-49bb-9318-de24f545817f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Session.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/User.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Action.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Watchable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Watchable.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +130,7 @@
       <workItem from="1574501888644" duration="7954000" />
       <workItem from="1574510230883" duration="4350000" />
       <workItem from="1574616632457" duration="6922000" />
-      <workItem from="1574623735167" duration="13231000" />
+      <workItem from="1574623735167" duration="7137000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1574190409465</created>
@@ -226,21 +230,7 @@
       <option name="project" value="LOCAL" />
       <updated>1574626676809</updated>
     </task>
-    <task id="LOCAL-00015" summary="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1574631962226</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1574631962226</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Merge branch 'master' of https://github.com/maya418/Assignment1&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1574698681406</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1574698681406</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

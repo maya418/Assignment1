@@ -75,7 +75,7 @@ Session::~Session(){
 
    delete(activeUser);
 }
-/*
+
 Session::Session(const Session &sess) {
     for (int i = 0; i < sess.content.size(); i++)
         content.push_back(sess.content[i]);
@@ -86,25 +86,29 @@ Session::Session(const Session &sess) {
 
     for(auto it=userMap.begin();it!=userMap.end();it++) {
         if (it->second->getAlgorithm() == "len"){
-            LengthRecommenderUser* newUser = new LengthRecommenderUser(myName);
+            LengthRecommenderUser* newUser = new LengthRecommenderUser(it->second , it->first);
             getMap()->insert({it->first, newUser});
-        } else if (it->second->getAlgorithm() == == "rer") {
-            RerunRecommenderUser* newUser = new RerunRecommenderUser(myName);
+        } else if (it->second->getAlgorithm() ==  "rer") {
+            RerunRecommenderUser* newUser = new RerunRecommenderUser(it->second , it->first);
             getMap()->insert({it->first, newUser});
         } else if (it->second->getAlgorithm() == "gen") {
-            GenreRecommenderUser* newUser = new GenreRecommenderUser(myName);
+            GenreRecommenderUser* newUser = new GenreRecommenderUser(it->second , it->first);
             getMap()->insert({it->first, newUser});
         }
     }
 
-    activeUser = sess.activeUser;
+    //activeUser = sess.activeUser;how to copy ?
 }
 
+//copy constructor operator
+/*
 const Session& Session::operator=(const Session& other){
 
     return *this;
 }
 */
+
+//move constructor
 
 void Session::start()
 {

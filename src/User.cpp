@@ -178,3 +178,6 @@ User::~User() {
     history.clear();
 }
 
+
+//LengthRecommenderUser::~LengthRecommenderUser(){
+//}

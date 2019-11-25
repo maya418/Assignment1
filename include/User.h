@@ -32,6 +32,7 @@ private:
 class LengthRecommenderUser : public User {
 public:
     LengthRecommenderUser(const std::string& name);
+    LengthRecommenderUser(User *user, const std::string &name);
     virtual Watchable* getRecommendation(Session& s);
     std::string getAlgorithm();
 private:
@@ -41,6 +42,9 @@ private:
 class RerunRecommenderUser : public User {
 public:
     RerunRecommenderUser(const std::string& name);
+
+    RerunRecommenderUser(User *user, const std::string &name);
+
     virtual Watchable* getRecommendation(Session& s);
     std::string getAlgorithm();
 private:
@@ -51,6 +55,9 @@ private:
 class GenreRecommenderUser : public User {
 public:
     GenreRecommenderUser(const std::string& name);
+
+    GenreRecommenderUser(User *user, const std::string &name);
+
     virtual Watchable* getRecommendation(Session& s);
     std::string getAlgorithm();
     std::string getBestTag(std::map<std::string , int> tagsCount);

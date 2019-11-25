@@ -52,6 +52,10 @@ LengthRecommenderUser::LengthRecommenderUser(const string& name) : User(name) {
     algorithm = "len";
 }
 
+LengthRecommenderUser::LengthRecommenderUser(User* user , const string& name) : User(user , name) {
+
+}
+
 string LengthRecommenderUser::getAlgorithm(){
     return algorithm;
 }
@@ -81,6 +85,11 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name): User(name){
     lastRecommendedId = -1;
 }
 
+
+RerunRecommenderUser::RerunRecommenderUser(User* user , const string& name) : User(user , name) {
+
+}
+
 string RerunRecommenderUser::getAlgorithm(){
     return algorithm;
 }
@@ -100,6 +109,10 @@ Watchable* RerunRecommenderUser::getRecommendation(Session& s){
 //constructor
 GenreRecommenderUser::GenreRecommenderUser(const std::string &name): User(name){
     algorithm = "gen";
+}
+
+GenreRecommenderUser::GenreRecommenderUser(User* user , const string& name) : User(user , name) {
+
 }
 
 string GenreRecommenderUser::getAlgorithm(){
@@ -135,6 +148,7 @@ Watchable* GenreRecommenderUser::getRecommendation(Session& s){
             bestTag = getBestTag(tagsCount);
             tagsCount.erase(bestTag);
         }
+        //tagsCount.clear();
     }
 
     return nullptr;

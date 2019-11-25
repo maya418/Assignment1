@@ -55,6 +55,7 @@ Session::Session(const string &configFilePath) {
     }
     activeUser = new LengthRecommenderUser("default");//create default user
 }
+
 Session::~Session(){
    for (int i = 0; i < content.size(); i++){
        delete(content[i]);
@@ -74,6 +75,37 @@ Session::~Session(){
 
    delete(activeUser);
 }
+/*
+Session::Session(const Session &sess) {
+    for (int i = 0; i < sess.content.size(); i++)
+        content.push_back(sess.content[i]);
+
+    for (int i = 0; i < sess.actionsLog.size(); i++)
+        actionsLog.push_back(sess.actionsLog[i]);
+
+
+    for(auto it=userMap.begin();it!=userMap.end();it++) {
+        if (it->second->getAlgorithm() == "len"){
+            LengthRecommenderUser* newUser = new LengthRecommenderUser(myName);
+            getMap()->insert({it->first, newUser});
+        } else if (it->second->getAlgorithm() == == "rer") {
+            RerunRecommenderUser* newUser = new RerunRecommenderUser(myName);
+            getMap()->insert({it->first, newUser});
+        } else if (it->second->getAlgorithm() == "gen") {
+            GenreRecommenderUser* newUser = new GenreRecommenderUser(myName);
+            getMap()->insert({it->first, newUser});
+        }
+    }
+
+    activeUser = sess.activeUser;
+}
+
+const Session& Session::operator=(const Session& other){
+
+    return *this;
+}
+*/
+
 void Session::start()
 {
     cout << "SPLFLIX is now on!" << endl;

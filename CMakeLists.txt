@@ -15,4 +15,4 @@ add_executable(Assingment1
         src/Main.cpp
         src/Session.cpp
         src/User.cpp
-        src/Watchable.cpp src/Session.cpp src/Action.cpp)
+        src/Watchable.cpp)

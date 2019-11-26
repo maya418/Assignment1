@@ -22,7 +22,7 @@ User::User(const User* other , const std::string &name):name(name){
     for (int i=0; i<other->get_history().size(); i++)
         history.push_back(other->get_history()[i]);
 }
-/*
+
 const User& User::operator=(const User& other){
     if(this != &other) {
         for (int i=0; i<other.get_history().size(); i++)
@@ -30,7 +30,7 @@ const User& User::operator=(const User& other){
     }
     return *this;
 }
-*/
+
 Watchable* User::getRecommendation(Session& s){
     return nullptr;
 }
@@ -50,6 +50,10 @@ void User::set_history(Watchable* watch){
 //constructor
 LengthRecommenderUser::LengthRecommenderUser(const string& name) : User(name) {
     algorithm = "len";
+}
+
+LengthRecommenderUser::LengthRecommenderUser(User* user , const string& name) : User(user , name) {
+
 }
 
 string LengthRecommenderUser::getAlgorithm(){
@@ -81,6 +85,11 @@ RerunRecommenderUser::RerunRecommenderUser(const std::string& name): User(name){
     lastRecommendedId = -1;
 }
 
+
+RerunRecommenderUser::RerunRecommenderUser(User* user , const string& name) : User(user , name) {
+
+}
+
 string RerunRecommenderUser::getAlgorithm(){
     return algorithm;
 }
@@ -100,6 +109,10 @@ Watchable* RerunRecommenderUser::getRecommendation(Session& s){
 //constructor
 GenreRecommenderUser::GenreRecommenderUser(const std::string &name): User(name){
     algorithm = "gen";
+}
+
+GenreRecommenderUser::GenreRecommenderUser(User* user , const string& name) : User(user , name) {
+
 }
 
 string GenreRecommenderUser::getAlgorithm(){
@@ -135,6 +148,7 @@ Watchable* GenreRecommenderUser::getRecommendation(Session& s){
             bestTag = getBestTag(tagsCount);
             tagsCount.erase(bestTag);
         }
+        //tagsCount.clear();
     }
 
     return nullptr;
@@ -163,4 +177,3 @@ bool User::hasWatched(Watchable* watch){
 User::~User() {
     history.clear();
 }
-

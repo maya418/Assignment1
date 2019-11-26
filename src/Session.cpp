@@ -54,7 +54,6 @@ Session::Session(const string &configFilePath) {
         episode->setNextEpisodeId(0);//last episode of a tv-series
     }
     activeUser = new LengthRecommenderUser("default");//create default user
-//    delete (&configFilePath);
 }
 
 Session::~Session() {
@@ -72,99 +71,160 @@ Session::~Session() {
         delete (actionsLog[i]);
     }
     actionsLog.clear();
-    delete (activeUser);
     activeUser = nullptr;
 }
 
-void Session::start() {
-    cout << "SPLFLIX is now on!" << endl;
-    cout << "Please enter action" << endl;
-    string action;
-    getline(cin, action);
-    vector<string> result = splitText(action);
-    while (action.compare("exit") != 0) {
-        string command = result[0];
-        if (command.compare("createuser") == 0) {
-            CreateUser *createUser = new CreateUser(result[1], result[2]);
-            createUser->act(*this);
-            actionsLog.push_back(createUser);
-        } else if (command.compare("changeuser") == 0) {
-            ChangeActiveUser *changeUser = new ChangeActiveUser(result[1]);
-            changeUser->act(*this);
-            actionsLog.push_back(changeUser);
-        } else if (command.compare("deleteuser") == 0) {
+// COp
 
-            DeleteUser *deleteUser = new DeleteUser(result[1]);
-            deleteUser->act(*this);
-            actionsLog.push_back(deleteUser);
-        } else if (command.compare("dupuser") == 0) {
-            DuplicateUser *duplicateUser = new DuplicateUser(result[1], result[2]);
-            duplicateUser->act(*this);
-            actionsLog.push_back(duplicateUser);
-        } else if (command.compare("content") == 0) {
-            PrintContentList *printContentList = new PrintContentList();
-            printContentList->act(*this);
-            actionsLog.push_back(printContentList);
-        } else if (command.compare("watch") == 0) {
-            Watch *watch = new Watch(result[1]);
-            watch->act(*this);
-            actionsLog.push_back(watch);
-        } else if (command.compare("watchhist") == 0) {
-            PrintWatchHistory *printWatchHistory = new PrintWatchHistory();
-            printWatchHistory->act(*this);
-            actionsLog.push_back(printWatchHistory);
-        } else if (command.compare("log") == 0) {
-            PrintActionsLog *printActionsLog = new PrintActionsLog();
-            printActionsLog->act(*this);
-            actionsLog.push_back(printActionsLog);
+Session::Session(const Session &sess) {
+    for (int i = 0; i < sess.content.size(); i++)
+        content.push_back(sess.content[i]);
+
+    for (int i = 0; i < sess.actionsLog.size(); i++)
+        actionsLog.push_back(sess.actionsLog[i]);
+
+    for (auto it = sess.userMap.begin(); it != sess.userMap.end(); it++) {
+        if (it->second->getAlgorithm() == "len") {
+            LengthRecommenderUser *newUser = new LengthRecommenderUser(it->second, it->first);
+            getMap()->insert({it->first, newUser});
+        } else if (it->second->getAlgorithm() == "rer") {
+            RerunRecommenderUser *newUser = new RerunRecommenderUser(it->second, it->first);
+            getMap()->insert({it->first, newUser});
+        } else if (it->second->getAlgorithm() == "gen") {
+            GenreRecommenderUser *newUser = new GenreRecommenderUser(it->second, it->first);
+            getMap()->insert({it->first, newUser});
         }
-        getline(cin, action);
-        result = splitText(action);
     }
-    //Exit session
+    activeUser = sess.activeUser; // We need to make User Copy Assignment
+} //
 
+//copy constructor operator
+Session &Session::operator=(const Session &other) {
+    if (this != &other) {
+        delete (this);
+        for (int i = 0; i < other.content.size(); i++)
+            content.push_back(other.content[i]);
+        for (int i = 0; i < other.actionsLog.size(); i++)
+            actionsLog.push_back(other.actionsLog[i]);
+        for (auto it = other.userMap.begin(); it != other.userMap.end(); it++) {
+            if (it->second->getAlgorithm() == "len") {
+                LengthRecommenderUser *newUser = new LengthRecommenderUser(it->second, it->first);
+                getMap()->insert({it->first, newUser});
+            } else if (it->second->getAlgorithm() == "rer") {
+                RerunRecommenderUser *newUser = new RerunRecommenderUser(it->second, it->first);
+                getMap()->insert({it->first, newUser});
+            } else if (it->second->getAlgorithm() == "gen") {
+                GenreRecommenderUser *newUser = new GenreRecommenderUser(it->second, it->first);
+                getMap()->insert({it->first, newUser});
+            }
+        }
+
+    }
+    return *this;
 }
 
 
-vector<string> Session::splitText(string action) {
-    vector<std::string> result;
-    std::istringstream iss(action);
-    for (std::string s; iss >> s;)
-        result.push_back(s);
-    return result;
-}
+//// Move Assignment
+//    Session &Session::operator=(Session &&other) {
+//        if (this != &other) {
+////        clear();
+////        cstringlen = other.cstringlen;
+////        cstring = other.cstring;
+////        other.cstring = nullptr;
+////        other.cstringlen = 0;
+//        }
+//
+//        return *this;
+//    }
+
+    void Session::start() {
+        cout << "SPLFLIX is now on!" << endl;
+        cout << "Please enter action" << endl;
+        string action;
+        getline(cin, action);
+        vector<string> result = splitText(action);
+        while (action.compare("exit") != 0) {
+            string command = result[0];
+            if (command.compare("createuser") == 0) {
+                CreateUser *createUser = new CreateUser(result[1], result[2]);
+                createUser->act(*this);
+                actionsLog.push_back(createUser);
+            } else if (command.compare("changeuser") == 0) {
+                ChangeActiveUser *changeUser = new ChangeActiveUser(result[1]);
+                changeUser->act(*this);
+                actionsLog.push_back(changeUser);
+            } else if (command.compare("deleteuser") == 0) {
+
+                DeleteUser *deleteUser = new DeleteUser(result[1]);
+                deleteUser->act(*this);
+                actionsLog.push_back(deleteUser);
+            } else if (command.compare("dupuser") == 0) {
+                DuplicateUser *duplicateUser = new DuplicateUser(result[1], result[2]);
+                duplicateUser->act(*this);
+                actionsLog.push_back(duplicateUser);
+            } else if (command.compare("content") == 0) {
+                PrintContentList *printContentList = new PrintContentList();
+                printContentList->act(*this);
+                actionsLog.push_back(printContentList);
+            } else if (command.compare("watch") == 0) {
+                Watch *watch = new Watch(result[1]);
+                watch->act(*this);
+                actionsLog.push_back(watch);
+            } else if (command.compare("watchhist") == 0) {
+                PrintWatchHistory *printWatchHistory = new PrintWatchHistory();
+                printWatchHistory->act(*this);
+                actionsLog.push_back(printWatchHistory);
+            } else if (command.compare("log") == 0) {
+                PrintActionsLog *printActionsLog = new PrintActionsLog();
+                printActionsLog->act(*this);
+                actionsLog.push_back(printActionsLog);
+            }
+            getline(cin, action);
+            result = splitText(action);
+        }
+        //Exit session
+
+    }
 
 
-void Session::setActiveUser(User *user) {
-    if (activeUser->getName() == "default")
-        delete activeUser;
-    activeUser = user;
-}
+    vector<string> Session::splitText(string action) {
+        vector<std::string> result;
+        std::istringstream iss(action);
+        for (std::string s; iss >> s;)
+            result.push_back(s);
+        return result;
+    }
 
-User *Session::getActiveUser() {
-    return activeUser;
-}
+    void Session::setActiveUser(User *user) {
+        if (activeUser->getName() == "default")
+            delete activeUser;
+        activeUser = user;
+    }
 
-vector<Watchable *> Session::getContent() {
-    return content;
-}
+    User *Session::getActiveUser() {
+        return activeUser;
+    }
 
-bool Session::contain(string name) {
-    if (userMap.find(name) == userMap.end())
-        return false;
-    return true;
-}
+    vector<Watchable *> Session::getContent() {
+        return content;
+    }
 
-User *Session::findUser(string name) {
-    unordered_map<string, User *>::const_iterator got = userMap.find(name);
-    User *user = got->second;
-    return user;
-}
+    bool Session::contain(string name) {
+        if (userMap.find(name) == userMap.end())
+            return false;
+        return true;
+    }
 
-unordered_map<string, User *> *Session::getMap() {
-    return &userMap;
-}
+    User *Session::findUser(string name) {
+        unordered_map<string, User *>::const_iterator got = userMap.find(name);
+        User *user = got->second;
+        return user;
+    }
 
-vector<BaseAction *> Session::getActionsLog() {
-    return actionsLog;
-}
+    unordered_map<string, User *> *Session::getMap() {
+        return &userMap;
+    }
+
+    vector<BaseAction *> Session::getActionsLog() {
+        return actionsLog;
+    }

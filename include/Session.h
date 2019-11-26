@@ -29,5 +29,8 @@ private:
     std::vector<BaseAction*> actionsLog;
     std::unordered_map<std::string,User*> userMap;
     User* activeUser;
+    void clean();
+
+    void copy(const Session &other);
 };
 #endif

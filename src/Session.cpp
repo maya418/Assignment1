@@ -57,6 +57,11 @@ Session::Session(const string &configFilePath) {
 }
 
 Session::~Session() {
+    clean();
+
+}
+//clean
+void Session::clean() {
     for (int i = 0; i < content.size(); i++) {
         delete (content[i]);
     }
@@ -71,37 +76,25 @@ Session::~Session() {
         delete (actionsLog[i]);
     }
     actionsLog.clear();
+    delete(activeUser);
     activeUser = nullptr;
 }
 
 // COp
 
 Session::Session(const Session &sess) {
-    for (int i = 0; i < sess.content.size(); i++)
-        content.push_back(sess.content[i]);
-
-    for (int i = 0; i < sess.actionsLog.size(); i++)
-        actionsLog.push_back(sess.actionsLog[i]);
-
-    for (auto it = sess.userMap.begin(); it != sess.userMap.end(); it++) {
-        if (it->second->getAlgorithm() == "len") {
-            LengthRecommenderUser *newUser = new LengthRecommenderUser(it->second, it->first);
-            getMap()->insert({it->first, newUser});
-        } else if (it->second->getAlgorithm() == "rer") {
-            RerunRecommenderUser *newUser = new RerunRecommenderUser(it->second, it->first);
-            getMap()->insert({it->first, newUser});
-        } else if (it->second->getAlgorithm() == "gen") {
-            GenreRecommenderUser *newUser = new GenreRecommenderUser(it->second, it->first);
-            getMap()->insert({it->first, newUser});
-        }
-    }
-    activeUser = sess.activeUser; // We need to make User Copy Assignment
+   copy(sess);
 } //
 
 //copy constructor operator
 Session &Session::operator=(const Session &other) {
+    clean();
+    copy(other);
+    return *this;
+}
+
+void Session::copy(const Session &other) {
     if (this != &other) {
-        delete (this);
         for (int i = 0; i < other.content.size(); i++)
             content.push_back(other.content[i]);
         for (int i = 0; i < other.actionsLog.size(); i++)
@@ -120,7 +113,7 @@ Session &Session::operator=(const Session &other) {
         }
 
     }
-    return *this;
+    activeUser = other.activeUser; // We need to make User Copy Assignment
 }
 
 
